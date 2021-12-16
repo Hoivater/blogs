@@ -1,5 +1,6 @@
+@charset "UTF-8";
 /*Основные стили сайта*/
-main{
+main {
   display: flex;
   flex-wrap: nowrap;
   height: 100vh;
@@ -13,10 +14,22 @@ body {
   min-height: 100vh;
   min-height: -webkit-fill-available;
 }
+
 html {
   height: -webkit-fill-available;
 }
 
-@import 'sidebar';
+.sidebar {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
 
-@import 'search';
+.search {
+  position: absolute;
+  top: 0;
+  left: 4.5rem;
+  width: 80%;
+  background: #F8F9FA;
+  text-align: center;
+}
