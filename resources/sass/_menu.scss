@@ -1,0 +1,53 @@
+.menu, .menu_bottom{
+  height:100vh;
+}
+.sidebar{
+  position: sticky;
+  top: 0;
+}
+.menu_pod{
+  margin:auto 1%;
+  a{
+    text-decoration:none;
+  }
+}
+
+.header_menu{
+  background:#006FFF;
+  margin-bottom:0;
+  font-weight:bold;
+  color:white;
+}
+.body_menu{
+  background:white;
+  margin-top:0;
+  border:5px solid #006FFF;
+  padding:1%;
+  width:100%;
+}
+
+.navigation{
+  background:#006FFF;
+  width:100%;
+  margin:0;
+  padding:1%;
+  color:white;
+
+  a
+  {
+    color:white;
+    text-decoration:none;
+  }
+}
+ 
+.content, .menu_bottom{
+  background: url('../../public/data_image/menu.svg') no-repeat fixed;
+  background-size: cover;
+  padding:0;
+}
+.m_menu{
+  font-weight:bold;
+}
+.link_group{
+  cursor:pointer;
+}

@@ -1,4 +1,5 @@
 /*Основные стили сайта*/
+
 main{
   display: flex;
   flex-wrap: nowrap;
@@ -6,12 +7,13 @@ main{
   height: -webkit-fill-available;
   max-height: 100vh;
   overflow-x: auto;
-  background: #D8E0FA;
+  background: #F8F9FA;
 }
 
 body {
   min-height: 100vh;
   min-height: -webkit-fill-available;
+  font-family:Ubuntu;
 }
 html {
   height: -webkit-fill-available;
@@ -20,3 +22,7 @@ html {
 @import 'sidebar';
 
 @import 'search';
+
+@import 'menu';
+
+@import 'article';
