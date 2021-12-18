@@ -30,3 +30,36 @@
 // const app = new Vue({
 //     el: '#app',
 // });
+
+
+//отображение элементов дополнительных
+
+// $(document).on('click', '.scrollto', function(event){
+//     event.preventDefault();
+//     var idElement = "mod_"+event.target.id;
+//     var ids = '#'+idElement;
+
+//     $("#mod_menu").css("display", "none");
+//     $("#mod_search").css("display", "none");
+//     $("#mod_groups").css("display", "none");
+//     $("#mod_tags").css("display", "none");
+//     $(ids).css("display", "block");
+// });
+$(document).on('click', '.scrollto i', function(event){
+    event.preventDefault();
+    var idElement = "mo"+event.target.id;
+    var ids = '#'+idElement;
+    
+    $("#mod_menu").css("display", "none");
+    $("#mod_search").css("display", "none");
+    $("#mod_groups").css("display", "none");
+    $("#mod_tags").css("display", "none");
+    $(ids).css("display", "block");
+});
+$(document).on('click', '.close', function(event){
+    event.preventDefault();
+    $("#mod_menu").css("display", "none");
+    $("#mod_search").css("display", "none");
+    $("#mod_groups").css("display", "none");
+    $("#mod_tags").css("display", "none");
+});

@@ -34,37 +34,38 @@
       <span class="visually-hidden">Icon-only</span>
     </a>
     <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
-      <li class="nav-item scroll_gao">
-        <a href="#link_desktop" class="nav-link py-3 border-bottom scrollto" aria-current="page" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Рабочий стол">
-          <i class="fas fa-bars"></i>
+
+      <li>
+        <a href="#" class="nav-link py-3 border-bottom scrollto" id = "article"  title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Статья">
+          <i class="fas fa-desktop"></i> Home
+        </a>
+      </li>
+      <li class="nav-item scrollto">
+        <a href="#"  class="nav-link py-3 border-bottom scrollto" id = "menu" aria-current="page" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Меню">
+          <i class="fas fa-bars p-2" id = 'd_menu'></i>
         </a>
       </li>
 
       <li>
-        <a href="#" class="nav-link py-3 border-bottom" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Группы">
-            <i class="far fa-object-group"></i>
+        <a href="#" class="nav-link py-3 border-bottom scrollto" id = "groups" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Группы">
+            <i class="far fa-object-group p-2" id = 'd_groups'></i>
         </a>
       </li>
 
-      <li>
-        <a href="#read_article" class="nav-link py-3 border-bottom scrollto" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Статья">
-          <i class="far fa-newspaper"></i>
-        </a>
-      </li>
-      <li>
-        <a href="#" class="nav-link py-3 border-bottom" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Комментарии">
+      <!-- <li>
+        <a href="#" class="nav-link py-3 border-bottom scrollto" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Комментарии">
             <i class="far fa-comments"></i>
         </a>
-      </li>
+      </li> -->
       <li>
-        <a href="#tegs_footer" class="nav-link py-3 border-bottom scrollto" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Теги">
-            <i class="fas fa-hashtag"></i>
+        <a href="#" class="nav-link py-3 border-bottom scrollto" id = "tags"  title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Теги">
+            <i class="fas fa-hashtag p-2" id = 'd_tags'></i>
         </a>
       </li>
 
       <li>
-        <a href="#" class="nav-link py-3 border-bottom" title="" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            <i class="fas fa-search"></i>
+        <a href="#" class="nav-link py-3 border-bottom scrollto" id = "search" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Поиск">
+            <i class="fas fa-search p-2" id = 'd_search'></i>
         </a>
       </li>
 
@@ -84,32 +85,64 @@
         <li><a class="dropdown-item" href="#">Выход</a></li>
       </ul>
     </div>
-
-
-
 </div>
 
 
 
 <div class="container-fluid content"  id = "link_desktop">
 
-<div class="menu d-flex align-items-start flex-column">
+<div class="block d-flex align-items-start flex-column">
     
     <div class="header m-2 mt-3  ml-0 pl-0">
         <img src="{{ route('welcome')}}/data_image/header.svg">
     </div>
-        
-    <div class="menu_pod">
+    <div class="container-fluid desktop_border">
+      <!-- Новая статья -->
+        <div class="main_field">
+        <div class="header_menu">
+          <p class = "m-0 p-2">Создать новую страницу |</p>
+        </div>
+        <div class="body_menu">
+            <form>
+              <div class="mb-3">
+                <label for="nameArticle" class="form-label">Название статьи</label>
+                <input type="text" class="form-control" id="nameArticle" aria-describedby="nameHelp">
+                <div id="nameHelp" class="form-text">Название статьи отображается в title, на рабочем столе отображается лишь 50 первых символов</div>
+              </div>
+              <div class="mb-3">
+                <label for="descriptionArticle" class="form-label">Короткое описание</label>
+                <textarea class="form-control" id="descriptionArticle" aria-describedby="descriptionHelp"></textarea>
+                <div id="descriptionHelp" class="form-text">Необходимо для meta:description, около 150 символов</div>
+              </div>
+              
+              <div class="mb-3">
+                <label for="descriptionArticle" class="form-label">Полноценное описание</label>
+                <textarea class="form-control" id="descriptionArticle" aria-describedby="descriptionHelp"></textarea>
+                <div id="descriptionHelp" class="form-text">Необходимо для meta:description, около 150 символов</div>
+              </div>
+              
+              <button type="submit" class="btn btn-primary">Добавить</button>
+            </form>
+        </div>
+      </div>
+
+    </div>
+
+
+
+
+
+
+    <div class="menu_pod" id = "mod_menu">
       <div class="header_menu">
         <p class = "m-0 p-2">Меню для gifit.ru.html</p>
+        <div class = "close"></div>
       </div>
       <div class="body_menu">
            <h5>&lt;nav class = 'menu'&gt;</h5>
             <h5>&nbsp; &lt;a href = '/conspect'&gt;</h5> 
             <h5>&nbsp;&nbsp;<a href = '#' class = 'm_menu'>Конспект [17]</a> <small><i class="fas fa-arrow-right"></i> <a href = '#' class = 'v_menu'>Laravel [10]</a> /  <a href = '#' class = 'v_menu'>Laravel [10]</a> /  <a href = '#' class = 'v_menu'>Laravel [10]</a> /  <a href = '#' class = 'v_menu'>Laravel [10]</a> /  <a href = '#' class = 'v_menu'>Laravel [10]</a> / <a href = '#' class = 'v_menu'>Github[23]</a>  / <a href = '#' class = 'v_menu'>SASS и SCSS[3]</a></small></h5>
             <h5>&nbsp; &lt;/a&gt;</h5>
-
-
             <h5>&nbsp; &lt;a href = ''&gt;</h5> 
             <h5>&nbsp;&nbsp;<a href = '#' class = 'm_menu'>Самые официальные страницы [1]</a> <small><i class="fas fa-arrow-right"></i> <a href = '#'>MyPtoBot [10]</a></small></h5>
             <h5>&nbsp; &lt;/a&gt;</h5>
@@ -118,93 +151,88 @@
     </div>
     
 
-    <div class="navigation mt-auto" id = "read_article">
-      <h5><a href =''>Конспект</a>\<a href =''>GitHub</a></h5> 
+
+
+
+   <div class="menu_pod" id = "mod_search">
+        <div class="header_menu">
+          <p class = "m-0 p-2">Поиск</p>
+          <div class = "close"></div>
+        </div>
+        <div class="body_menu">
+          <form name="search" action ="#" method="post">
+              <div class="input-group p-3">
+                <input type="text" class="form-control" aria-label="Recipient's username" aria-describedby="button-addon2">
+                <button class="btn btn-outline-secondary" type="button" id="button-addon2">Поиск</button>
+              </div>
+          </form>
+
+        </div>
+      </div>
+
+
+
+
+
+
+
+    <div class="menu_pod" id = "mod_groups">
+      <div class="header_menu">
+        <p class = "m-0 p-2">Группы</p>
+        <div class = "close"></div>
+      </div>
+      <div class="body_menu">
+
+      </div>
     </div>
-</div>
-<div class="data">
-  <div class="container">
-    
 
 
 
 
 
-
-    <article class="row one_article mt-3 card">
-      <div class="one_article_header p-2">
-        <a href = 'link'>Lorem ipsum dolor, sit amet consectetur adipisicing elit.txt</a>
-      </div>
-      <div class="one_article_body container-fluid">
-        <div class="row">
-        <div class="col-md-3">
-          <img src = "{{route('welcome')}}/user_image/1.jpg" class="img-fluid" />
-        </div>
-        <div class="col-md-9">
-          <p class="text-justify">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque assumenda ex veniam velit qui enim, quos, libero fuga. Repellendus aliquid quisquam facere at rem tenetur dolor officia nihil exercitationem perferendis inventore, error expedita voluptates praesentium provident. Officia unde est laudantium amet, culpa soluta quas a facere dolore ea sequi libero, in distinctio adipisci odit eaque fugit quo similique provident explicabo perspiciatis asperiores dolorum itaque.</p>
-        </div>
-        </div>
-      </div>
-    </article>
-
-    <article class="row one_article mt-3 card">
-      <div class="one_article_header p-2">
-        <a href = 'link'>Lorem ipsum dolor, sit amet consectetur adipisicing elit.txt</a>
-      </div>
-      <div class="one_article_body container-fluid">
-        <div class="row">
-        <div class="col-md-3">
-          <img src = "{{route('welcome')}}/user_image/1.jpg" class="img-fluid" />
-        </div>
-        <div class="col-md-9">
-          <p class="text-justify">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque assumenda ex veniam velit qui enim, quos, libero fuga. Repellendus aliquid quisquam facere at rem tenetur dolor officia nihil exercitationem perferendis inventore, error expedita voluptates praesentium provident. Officia unde est laudantium amet, culpa soluta quas a facere dolore ea sequi libero, in distinctio adipisci odit eaque fugit quo similique provident explicabo perspiciatis asperiores dolorum itaque.</p>
-        </div>
-        </div>
-      </div>
-    </article>
-
-    
-    <div class="pagi text-center">
-      <nav aria-label="..." class="mt-3 ">
-        <ul class="pagination pagination-sm">
-          <li class="page-item active" aria-current="page">
-            <span class="page-link">1</span>
-          </li>
-          <li class="page-item"><a class="page-link" href="#">2</a></li>
-          <li class="page-item"><a class="page-link" href="#">3</a></li>
-        </ul>
-      </nav>
-    </div>
-    
-
-
-  </div>
-</div>
-
-
-<div class="menu_bottom d-flex align-items-start flex-column" id="tegs_footer">
-    
-    <div class="header m-2 mt-3  ml-0 pl-0">
-        <img src="{{ route('welcome')}}/data_image/header.svg">
-    </div>
-    
-    <div class="menu_pod">
+    <div class="menu_pod" id = "mod_tags">
       <div class="header_menu">
         <p class = "m-0 p-2">Теги для gifit.ru.html</p>
+<div class = "close"></div>
       </div>
       <div class="body_menu">
            <h5>&lt;nav class = 'tag'&gt;</h5>
             <h5>&nbsp; &lt;a href = '/tags'&gt;</h5> 
-            <h5>&nbsp;&nbsp;<a href = '#' class = 'm_menu'>Конспект</a> , <a href = '#' class = 'm_menu'>CSS</a> , <a href = '#' class = 'm_menu'>CSS</a> , <a href = '#' class = 'm_menu'>CSS</a> , <a href = '#' class = 'm_menu'>CSS</a> , <a href = '#' class = 'm_menu'>CSS</a> , <a href = '#' class = 'm_menu'>CSS</a> , <a href = '#' class = 'm_menu'>CSS</a> , <a href = '#' class = 'm_menu'>CSS</a> , <a href = '#' class = 'm_menu'>CSS</a> , <a href = '#' class = 'm_menu'>CSS</a> , <a href = '#' class = 'm_menu'>CSS</a> </h5>
+            <h5>&nbsp;&nbsp;<a href = '#' class = 'm_menu'>Конспект {32}</a> , <a href = '#' class = 'm_menu'>CSS</a> , <a href = '#' class = 'm_menu'>CSS</a> , <a href = '#' class = 'm_menu'>CSS</a> , <a href = '#' class = 'm_menu'>CSS</a> , <a href = '#' class = 'm_menu'>CSS</a> , <a href = '#' class = 'm_menu'>CSS</a> , <a href = '#' class = 'm_menu'>CSS</a> , <a href = '#' class = 'm_menu'>CSS</a> , <a href = '#' class = 'm_menu'>CSS</a> , <a href = '#' class = 'm_menu'>CSS</a> , <a href = '#' class = 'm_menu'>CSS</a> </h5>
             <h5>&nbsp; &lt;/a&gt;</h5>
         <h5>&lt;/nav&gt;</h5>
       </div>
     </div>
 
-    <div class="navigation mt-auto">
-      <h5> © GIFIT.RU, 2021</h5> 
+
+
+
+    <div class="navigation mt-auto" id = "read_article">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-9">
+              <h5 class="string_info"><a href =''>Home\Конспект</a>\<a href =''>GitHub</a></h5> 
+          </div>
+          <div class="col-md-3"><h5 class="text-end">© GIFIT.RU, 2021</h5></div>
+        </div>
+      </div>
     </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -213,29 +241,7 @@
 
 </main>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Поиск по блогу</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form name="search" action ="#" method="post">
 
-            <div class="input-group p-3">
-              <input type="text" class="form-control" aria-label="Recipient's username" aria-describedby="button-addon2">
-              <button class="btn btn-outline-secondary" type="button" id="button-addon2">Поиск</button>
-            </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
 
 
 
@@ -245,14 +251,10 @@
 var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
 var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
 return new bootstrap.Tooltip(tooltipTriggerEl)
-})
-$(document).ready(function() {
-  $(".scrollto").click(function() {
-    var elementClick = $(this).attr("href");
-    alert(elementClick);
-    $('html,body').stop().animate({ scrollTop: $(elementClick).offset().top }, 1000);
-    e.preventDefault();   
-  });
+});
+var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+  return new bootstrap.Popover(popoverTriggerEl)
 });
 </script>
 </html>
