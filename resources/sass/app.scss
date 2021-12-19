@@ -18,6 +18,9 @@ body {
 html {
   height: -webkit-fill-available;
 }
+.hidden{
+  display:none;
+}
 @import 'sidebar';
 
 @import 'search';

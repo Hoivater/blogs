@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="CodeHim">
+    <title>Angular Text Editor Example </title>  
+<!-- Bootstrap 5 CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+<!-- Font Aweomse 4 CSS -->
+<link rel='stylesheet prefetch' href='https://netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.min.css'>
+      
+<!-- Rich Text Editor CSS -->
+<link rel="stylesheet" href="css/rich-text-editor.css">
+    
+<!-- Demo CSS -->
+<link rel="stylesheet" href="css/demo.css">
+  </head>
+  <body>
+ <header class="intro">
+ <h1> Angular Text Editor Example </h1>
+ <p> A rich text editor using Bootstrap 5 and AngularJs.</p>
+ <div class="action">
+ <a href="https://www.codehim.com/bootstrap/bootstrap-5-rich-text-editor-with-angularjs/" title="Back to download and tutorial page" class="btn back">Back to Tutorial</a>
+ </div>
+ 
+ </header>
+  
+ <main>
+ <!-- DEMO HTML -->
+  <div ng-app="textAngularTest" ng-controller="wysiwygeditor" class="container app">
+  <h3>WYSIWYG Code Editor/Generator</h3>
+  <div text-angular="text-angular" name="htmlcontent" ng-model="htmlcontent" ta-disabled='disabled'></div>
+  <h3>Output Code</h3>
+  <textarea ng-model="htmlcontent" style="width: 100%"></textarea>
+  <div ng-bind-html="htmlcontent"></div>
+  <div class="d-none" ta-bind="text" ng-model="htmlcontent" ta-readonly='disabled'></div>
+</div>
+<!-- END DEMO HTML -->
+      
+<!-- Angular JS -->
+<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular.min.js'></script>
+<!-- Angular Sanitize JS -->
+<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular-sanitize.min.js'></script>
+<!-- Text Angular JS -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/textAngular/1.1.2/textAngular.min.js'></script>
+
+<script>
+ angular.module("textAngularTest", ['textAngular']);
+	function wysiwygeditor($scope) {
+		$scope.orightml = '';
+		$scope.htmlcontent = $scope.orightml;
+		$scope.disabled = false;
+  };
+</script>
+     
+     
+ </main>
+ 
+  <footer class="credit">Author: oakhearted - Distributed By: <a title="Awesome web design code & scripts" href="https://www.codehim.com?source=demo-page" target="_blank">CodeHim</a></footer>
+  
+  </body>
+</html>

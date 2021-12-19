@@ -17,18 +17,75 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
     <!-- local CSS -->
-    <link rel="stylesheet" href="{{route('welcome')}}/css/app.css">
+    <link rel="stylesheet" href="css/app.css">
     <!-- local JavaScript -->
-    <script type="text/javascript" src="{{route('welcome')}}/js/app.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
     <!-- Font Awesome -->
-    @yield('scripts')
     <script src="https://kit.fontawesome.com/de9f65bcf0.js" crossorigin="anonymous"></script>
-    <link rel="shortcut icon" href="{{route('welcome')}}/favicon.svg" type="image/x-icon">
+
+    <link rel="shortcut icon" href="{{route('welcome')}}/favicon.ico" type="image/x-icon">
     <title>@yield('title')</title>
 </head>
 <body>
 <main>
-@include('inc.menu')
+<div class="d-flex flex-column flex-shrink-0 bg-light sidebar" style="width: 4.5rem;">
+    <a href="/" class="d-block p-3 link-dark text-decoration-none" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="На главную">
+      <img src="{{route('welcome')}}/data_image/logo.svg" alt = "логотип">
+      <span class="visually-hidden">Icon-only</span>
+    </a>
+    <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
+
+      <li>
+        <a href="#" class="nav-link py-3 border-bottom scrollto" id = "article"  title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Статья">
+          <i class="fas fa-desktop"></i> Home
+        </a>
+      </li>
+      <li class="nav-item scrollto">
+        <a href="#"  class="nav-link py-3 border-bottom scrollto" id = "menu" aria-current="page" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Меню">
+          <i class="fas fa-bars p-2" id = 'd_menu'></i>
+        </a>
+      </li>
+
+      <li>
+        <a href="#" class="nav-link py-3 border-bottom scrollto" id = "groups" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Группы">
+            <i class="far fa-object-group p-2" id = 'd_groups'></i>
+        </a>
+      </li>
+
+      <!-- <li>
+        <a href="#" class="nav-link py-3 border-bottom scrollto" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Комментарии">
+            <i class="far fa-comments"></i>
+        </a>
+      </li> -->
+      <li>
+        <a href="#" class="nav-link py-3 border-bottom scrollto" id = "tags"  title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Теги">
+            <i class="fas fa-hashtag p-2" id = 'd_tags'></i>
+        </a>
+      </li>
+
+      <li>
+        <a href="#" class="nav-link py-3 border-bottom scrollto" id = "search" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Поиск">
+            <i class="fas fa-search p-2" id = 'd_search'></i>
+        </a>
+      </li>
+
+    </ul>
+
+
+    <div class="dropdown border-top">
+      <a href="#" class="d-flex align-items-center justify-content-center p-3 link-dark text-decoration-none dropdown-toggle" id="dropdownUser3" data-bs-toggle="dropdown" aria-expanded="false">
+        <img src="https://github.com/mdo.png" alt="mdo" width="24" height="24" class="rounded-circle">
+      </a>
+      <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser3" style="">
+        <li><a class="dropdown-item" href="#">Создать статью</a></li>
+        <li><a class="dropdown-item" href="#">Мои картинки, загрузка</a></li>
+        <li><a class="dropdown-item" href="#">Управление статьями</a></li>
+        <li><a class="dropdown-item" href="#">Управление комментариями</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="#">Выход</a></li>
+      </ul>
+    </div>
+</div>
 
 
 
@@ -40,8 +97,9 @@
         <img src="{{ route('welcome')}}/data_image/header.svg">
     </div>
     <div class="container-fluid desktop_border">
-    @yield('content')
+
     </div>
+
 
 
 
@@ -107,7 +165,7 @@
     <div class="menu_pod" id = "mod_tags">
       <div class="header_menu">
         <p class = "m-0 p-2">Теги для gifit.ru.html</p>
-      <div class = "close"></div>
+<div class = "close"></div>
       </div>
       <div class="body_menu">
            <h5>&lt;nav class = 'tag'&gt;</h5>
@@ -170,7 +228,5 @@ var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggl
 var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
   return new bootstrap.Popover(popoverTriggerEl)
 });
-
-@yield('script_footer')
 </script>
 </html>
