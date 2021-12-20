@@ -4,7 +4,6 @@
 
 @section('content')
 
-
       <div class="row">
         <div class="col-md-2">
           <a href = "#" data-bs-toggle="popover" data-bs-html='true' title="<a href = 'link'>Полное название статьи. Может быть длинным например настолько</a>" data-bs-content="Комментировали: 32<br /> Теги: <a href = '#11'>#тег</a>">
@@ -14,7 +13,7 @@
 
                   </div>
                   <div class="col-8">
-                    <img src = "{{route('welcome')}}/user_image/1.jpg" class="img-fluid" />
+                    <img src = "{{route('welcome')}}/56user_imager/1.jpg" class="img-fluid" />
                   </div>
                   <div class="col-2">
 

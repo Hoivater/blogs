@@ -6,14 +6,10 @@
     </a>
     <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
 
-      <li>
-        <a href="#" class="nav-link py-3 border-bottom scrollto" id = "article"  title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Статья">
-          <i class="fas fa-desktop"></i>
-        </a>
-      </li>
+      
       <li class="nav-item scrollto">
-        <a href="#"  class="nav-link py-3 border-bottom scrollto" id = "menu" aria-current="page" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Меню">
-          <i class="fas fa-bars p-2" id = 'd_menu'></i>
+        <a href=" {{route('menus')}} "  class="nav-link py-3 border-bottom">
+          <span class="fas fa-bars"></span>
         </a>
       </li>
 
@@ -29,8 +25,8 @@
         </a>
       </li> -->
       <li>
-        <a href="#" class="nav-link py-3 border-bottom scrollto" id = "tags"  title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Теги">
-            <i class="fas fa-hashtag p-2" id = 'd_tags'></i>
+        <a href="{{route('tags')}}" class="nav-link py-3 border-bottom">
+            <span class="fas fa-hashtag"></span>
         </a>
       </li>
 

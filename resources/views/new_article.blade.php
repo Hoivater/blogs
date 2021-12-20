@@ -58,6 +58,7 @@
                 <input type="file" class="form-control" id="reviewFoto" name = "foto" aria-describedby="fotos" >
                 <div id="fotos" class="form-text">Отображение этого фото будет происходить лишь на рабочем столе</div>
               </div>
+              
               <input type = "text" class="hidden" name = "category" value = "{{$category}}">
               <input type = "text" class="hidden" name = "podcategory" value = "{{$podcategory}}">
               <div class="mb-3">

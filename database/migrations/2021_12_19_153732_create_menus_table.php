@@ -17,6 +17,7 @@ class CreateMenusTable extends Migration
             $table->id();
             $table -> string('name_category');
             $table -> string('value_category');
+            $table -> string('images');
             $table -> integer('podkategory');
             $table -> integer('visible');
             $table->timestamps();
