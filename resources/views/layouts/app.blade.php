@@ -125,7 +125,7 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-md-9">
-              <h5 class="string_info"><a href =''>Home\Конспект</a>\<a href =''>GitHub</a></h5> 
+              <h5 class="string_info">@yield('footer_link')</h5> 
           </div>
           <div class="col-md-3"><h5 class="text-end">© GIFIT.RU, 2021</h5></div>
         </div>

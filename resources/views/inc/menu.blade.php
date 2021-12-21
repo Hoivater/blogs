@@ -44,10 +44,7 @@
         <img src="https://github.com/mdo.png" alt="mdo" width="24" height="24" class="rounded-circle">
       </a>
       <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser3" style="">
-        <li><a class="dropdown-item" href="#">Создать статью</a></li>
-        <li><a class="dropdown-item" href="#">Мои картинки, загрузка</a></li>
-        <li><a class="dropdown-item" href="#">Управление статьями</a></li>
-        <li><a class="dropdown-item" href="#">Управление комментариями</a></li>
+        <li><a class="dropdown-item" href="#">Изображения</a></li>
         <li><hr class="dropdown-divider"></li>
         <li><a class="dropdown-item" href="#">Выход</a></li>
       </ul>

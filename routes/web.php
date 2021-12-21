@@ -13,19 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-}) -> name('welcome');
+Route::get('/', 'App\Http\Controllers\ArticleController@pageWelcome') -> name('welcome');
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-
-
-Route::get('/new_article/{category}/{podkategory}',
- 'App\Http\Controllers\ArticleController@newArticlePage') -> name('newArticle');
-
 
 #вывод страницы меню
 Route::get('/menu', 'App\Http\Controllers\MenuController@menuPage') -> name('menus');
@@ -33,12 +25,25 @@ Route::get('/menu', 'App\Http\Controllers\MenuController@menuPage') -> name('men
 #вывод страницы тегов
 Route::get('/tags', 'App\Http\Controllers\TagsController@tagsPage') -> name('tags');
 
+#вывод страницы статьи
+Route::get('/article/{link_article}', 'App\Http\Controllers\ArticleController@articlePage') -> name('articles');
+
 #вывод страницы со статьями подкатегорий
 Route::get('/subcategory/{name_subcategory}', 'App\Http\Controllers\ArticleController@pageSubcategory') -> name('subcategory');
+
+#вывод страницы со статьями категорий
+Route::get('/category/{name_category}', 'App\Http\Controllers\ArticleController@pageCategory') -> name('categoryPage');
+
 
 
 #вывод страницы добавления категории
 Route::get('/admin/new_category_page', 'App\Http\Controllers\MenuController@newCategoryPage') -> name('newCategoryPage');
+
+
+#создание новой статьи
+Route::get('/admin/new_articles/{category}/{podkategory}',
+ 'App\Http\Controllers\ArticleController@newArticlePage') -> name('newArticle');
+
 
 #вывод страницы добавления подкатегории
 Route::get('/admin/new_category_page/addPodCategory/{id_kategory}', 'App\Http\Controllers\MenuController@pagePodcategory') -> name('addPodCategory');

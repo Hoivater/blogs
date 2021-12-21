@@ -16,7 +16,7 @@
 
 @foreach($data as $key)
         <div class="col-md-2">
-          <a href = "#" data-bs-toggle="popover" data-bs-html='true' title="{{$key -> name_category}}" data-bs-content="
+          <a href = "#" data-bs-toggle="popover" data-bs-html='true' title="<a href = '{{route('welcome')}}/category/{{$key -> value_category}}'>{{$key -> name_category}}</a>" data-bs-content="
           @if(isset($key -> podkategory))   
           @foreach($key -> podkategory as $sub)
             <a href = '{{route('subcategory', $sub -> value_category)}}'>{{$sub -> name_category}}</a><br />
@@ -74,4 +74,8 @@
 
 </div>
 
+@endsection
+
+@section('footer_link')
+<a href ="{{route('welcome')}}">Home</a>\<a href = "#">Меню</a>\
 @endsection

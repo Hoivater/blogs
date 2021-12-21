@@ -2,18 +2,31 @@
 
 @section('title') Главная страница @endsection
 
+
+
 @section('content')
-
-      <div class="row">
-        <div class="col-md-2">
-          <a href = "#" data-bs-toggle="popover" data-bs-html='true' title="<a href = 'link'>Полное название статьи. Может быть длинным например настолько</a>" data-bs-content="Комментировали: 32<br /> Теги: <a href = '#11'>#тег</a>">
-              <div class="container icon_desktop ">
+<div class="row" data-masonry='{"percentPosition": true }'>
+@foreach($data_article as $key)
+    <div class="col-md-2">
+          <a href = "#" data-bs-toggle="popover" data-bs-html='true' title="<a href = '{{route('articles', $key -> link)}}'>{{$key -> name}}" data-bs-content="
+            <p>
+              <small>
+                <a href = '{{route('categoryPage', $key -> key_category)}}'>{{$key -> value_category}}</a> 
+                > 
+                <a href = '{{route('subcategory', $key -> key_subcategory)}}'>{{$key -> value_subcategory}}</a>
+              </small>
+            <p>
+              {{$key -> description}}
+            </p>
+            <hr/>
+            <p>{{$key -> created_at}}</p>">
+              <div class="container icon_desktop">
                 <div class="row">
                   <div class="col-2">
 
                   </div>
                   <div class="col-8">
-                    <img src = "{{route('welcome')}}/56user_imager/1.jpg" class="img-fluid" />
+                    <img src = "{{ route('welcome').'/storage/'.$key -> foto }}" class="img-fluid pt-3" />
                   </div>
                   <div class="col-2">
 
@@ -21,481 +34,24 @@
                 </div>
                 <div class="row">
                   <div class="col-12">
-                    <p class="text-center fw-bolder">Название статьи</p>
+                    <p class="text-center fw-bolder">{{$key -> name}}</p>
+
                   </div>
                 </div>
               </div>
           </a>
         </div>
-
-
- <div class="col-md-2">
-          <a href = "#" data-bs-toggle="popover" data-bs-trigger="focus" title="Полное название статьи. Может быть длинным например настолько" data-bs-html='true' data-bs-content="Комментировали: 32<br /> Теги: <a href = '#'>#тег</a>">
-              <div class="container icon_desktop ">
-                <div class="row">
-                  <div class="col-2">
-
-                  </div>
-                  <div class="col-8">
-                    <img src = "{{route('welcome')}}/user_image/1.jpg" class="img-fluid" />
-                  </div>
-                  <div class="col-2">
-
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-12">
-                    <p class="text-center fw-bolder">Название статьи</p>
-                  </div>
-                </div>
-              </div>
-          </a>
-        </div>
-
-         <div class="col-md-2">
-          <a href = "#" data-bs-toggle="popover" data-bs-trigger="focus" title="Полное название статьи. Может быть длинным например настолько" data-bs-html='true' data-bs-content="Комментировали: 32<br /> Теги: <a href = '#'>#тег</a>">
-              <div class="container icon_desktop ">
-                <div class="row">
-                  <div class="col-2">
-
-                  </div>
-                  <div class="col-8">
-                    <img src = "{{route('welcome')}}/user_image/1.jpg" class="img-fluid" />
-                  </div>
-                  <div class="col-2">
-
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-12">
-                    <p class="text-center fw-bolder">Название статьи</p>
-                  </div>
-                </div>
-              </div>
-          </a>
-        </div>
-
-
-         <div class="col-md-2">
-          <a href = "#" data-bs-toggle="popover" data-bs-trigger="focus" title="Полное название статьи. Может быть длинным например настолько" data-bs-html='true' data-bs-content="Комментировали: 32<br /> Теги: <a href = '#'>#тег</a>">
-              <div class="container icon_desktop ">
-                <div class="row">
-                  <div class="col-2">
-
-                  </div>
-                  <div class="col-8">
-                    <img src = "{{route('welcome')}}/user_image/1.jpg" class="img-fluid" />
-                  </div>
-                  <div class="col-2">
-
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-12">
-                    <p class="text-center fw-bolder">Название статьи</p>
-                  </div>
-                </div>
-              </div>
-          </a>
-        </div>
-
-
-         <div class="col-md-2">
-          <a href = "#" data-bs-toggle="popover" data-bs-trigger="focus" title="Полное название статьи. Может быть длинным например настолько" data-bs-html='true' data-bs-content="Комментировали: 32<br /> Теги: <a href = '#'>#тег</a>">
-              <div class="container icon_desktop ">
-                <div class="row">
-                  <div class="col-2">
-
-                  </div>
-                  <div class="col-8">
-                    <img src = "{{route('welcome')}}/user_image/1.jpg" class="img-fluid" />
-                  </div>
-                  <div class="col-2">
-
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-12">
-                    <p class="text-center fw-bolder">Название статьи</p>
-                  </div>
-                </div>
-              </div>
-          </a>
-        </div>
-
-         <div class="col-md-2">
-          <a href = "#" data-bs-toggle="popover" data-bs-trigger="focus" title="Полное название статьи. Может быть длинным например настолько" data-bs-html='true' data-bs-content="Комментировали: 32<br /> Теги: <a href = '123'>#тег</a>">
-              <div class="container icon_desktop ">
-                <div class="row">
-                  <div class="col-2">
-
-                  </div>
-                  <div class="col-8">
-                    <img src = "{{route('welcome')}}/user_image/1.jpg" class="img-fluid" />
-                  </div>
-                  <div class="col-2">
-
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-12">
-                    <p class="text-center fw-bolder">Название статьи</p>
-                  </div>
-                </div>
-              </div>
-          </a>
-        </div>
-
-
+@endforeach
+</div>
+    <div class="container-fluid mt-3">
+      <div class="pagination_bootstrap">
+      {{ $data_article -> links() }}
       </div>
-
-
-
-
-      <div class="row">
-        <div class="col-md-2">
-          <a href = "#" data-bs-toggle="popover" data-bs-html='true' title="<a href = 'link'>Полное название статьи. Может быть длинным например настолько</a>" data-bs-content="Комментировали: 32<br /> Теги: <a href = '#11'>#тег</a>">
-              <div class="container icon_desktop ">
-                <div class="row">
-                  <div class="col-2">
-
-                  </div>
-                  <div class="col-8">
-                    <img src = "{{route('welcome')}}/user_image/1.jpg" class="img-fluid" />
-                  </div>
-                  <div class="col-2">
-
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-12">
-                    <p class="text-center fw-bolder">Название статьи</p>
-                  </div>
-                </div>
-              </div>
-          </a>
-        </div>
-
-
- <div class="col-md-2">
-          <a href = "#" data-bs-toggle="popover" data-bs-trigger="focus" title="Полное название статьи. Может быть длинным например настолько" data-bs-html='true' data-bs-content="Комментировали: 32<br /> Теги: <a href = '#'>#тег</a>">
-              <div class="container icon_desktop ">
-                <div class="row">
-                  <div class="col-2">
-
-                  </div>
-                  <div class="col-8">
-                    <img src = "{{route('welcome')}}/user_image/1.jpg" class="img-fluid" />
-                  </div>
-                  <div class="col-2">
-
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-12">
-                    <p class="text-center fw-bolder">Название статьи</p>
-                  </div>
-                </div>
-              </div>
-          </a>
-        </div>
-
-         <div class="col-md-2">
-          <a href = "#" data-bs-toggle="popover" data-bs-trigger="focus" title="Полное название статьи. Может быть длинным например настолько" data-bs-html='true' data-bs-content="Комментировали: 32<br /> Теги: <a href = '#'>#тег</a>">
-              <div class="container icon_desktop ">
-                <div class="row">
-                  <div class="col-2">
-
-                  </div>
-                  <div class="col-8">
-                    <img src = "{{route('welcome')}}/user_image/1.jpg" class="img-fluid" />
-                  </div>
-                  <div class="col-2">
-
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-12">
-                    <p class="text-center fw-bolder">Название статьи</p>
-                  </div>
-                </div>
-              </div>
-          </a>
-        </div>
-
-
-         <div class="col-md-2">
-          <a href = "#" data-bs-toggle="popover" data-bs-trigger="focus" title="Полное название статьи. Может быть длинным например настолько" data-bs-html='true' data-bs-content="Комментировали: 32<br /> Теги: <a href = '#'>#тег</a>">
-              <div class="container icon_desktop ">
-                <div class="row">
-                  <div class="col-2">
-
-                  </div>
-                  <div class="col-8">
-                    <img src = "{{route('welcome')}}/user_image/1.jpg" class="img-fluid" />
-                  </div>
-                  <div class="col-2">
-
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-12">
-                    <p class="text-center fw-bolder">Название статьи</p>
-                  </div>
-                </div>
-              </div>
-          </a>
-        </div>
-
-
-         <div class="col-md-2">
-          <a href = "#" data-bs-toggle="popover" data-bs-trigger="focus" title="Полное название статьи. Может быть длинным например настолько" data-bs-html='true' data-bs-content="Комментировали: 32<br /> Теги: <a href = '#'>#тег</a>">
-              <div class="container icon_desktop ">
-                <div class="row">
-                  <div class="col-2">
-
-                  </div>
-                  <div class="col-8">
-                    <img src = "{{route('welcome')}}/user_image/1.jpg" class="img-fluid" />
-                  </div>
-                  <div class="col-2">
-
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-12">
-                    <p class="text-center fw-bolder">Название статьи</p>
-                  </div>
-                </div>
-              </div>
-          </a>
-        </div>
-
-         <div class="col-md-2">
-          <a href = "#" data-bs-toggle="popover" data-bs-trigger="focus" title="Полное название статьи. Может быть длинным например настолько" data-bs-html='true' data-bs-content="Комментировали: 32<br /> Теги: <a href = '123'>#тег</a>">
-              <div class="container icon_desktop ">
-                <div class="row">
-                  <div class="col-2">
-
-                  </div>
-                  <div class="col-8">
-                    <img src = "{{route('welcome')}}/user_image/1.jpg" class="img-fluid" />
-                  </div>
-                  <div class="col-2">
-
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-12">
-                    <p class="text-center fw-bolder">Название статьи</p>
-                  </div>
-                </div>
-              </div>
-          </a>
-        </div>
-
-
-      </div>
-
-
-
-      <div class="row">
-        <div class="col-md-2">
-          <a href = "#" data-bs-toggle="popover" data-bs-html='true' title="<a href = 'link'>Полное название статьи. Может быть длинным например настолько</a>" data-bs-content="Комментировали: 32<br /> Теги: <a href = '#11'>#тег</a>">
-              <div class="container icon_desktop ">
-                <div class="row">
-                  <div class="col-2">
-
-                  </div>
-                  <div class="col-8">
-                    <img src = "{{route('welcome')}}/user_image/1.jpg" class="img-fluid" />
-                  </div>
-                  <div class="col-2">
-
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-12">
-                    <p class="text-center fw-bolder">Название статьи</p>
-                  </div>
-                </div>
-              </div>
-          </a>
-        </div>
-
-
- <div class="col-md-2">
-          <a href = "#" data-bs-toggle="popover" data-bs-trigger="focus" title="Полное название статьи. Может быть длинным например настолько" data-bs-html='true' data-bs-content="Комментировали: 32<br /> Теги: <a href = '#'>#тег</a>">
-              <div class="container icon_desktop ">
-                <div class="row">
-                  <div class="col-2">
-
-                  </div>
-                  <div class="col-8">
-                    <img src = "{{route('welcome')}}/user_image/1.jpg" class="img-fluid" />
-                  </div>
-                  <div class="col-2">
-
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-12">
-                    <p class="text-center fw-bolder">Название статьи</p>
-                  </div>
-                </div>
-              </div>
-          </a>
-        </div>
-
-         <div class="col-md-2">
-          <a href = "#" data-bs-toggle="popover" data-bs-trigger="focus" title="Полное название статьи. Может быть длинным например настолько" data-bs-html='true' data-bs-content="Комментировали: 32<br /> Теги: <a href = '#'>#тег</a>">
-              <div class="container icon_desktop ">
-                <div class="row">
-                  <div class="col-2">
-
-                  </div>
-                  <div class="col-8">
-                    <img src = "{{route('welcome')}}/user_image/1.jpg" class="img-fluid" />
-                  </div>
-                  <div class="col-2">
-
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-12">
-                    <p class="text-center fw-bolder">Название статьи</p>
-                  </div>
-                </div>
-              </div>
-          </a>
-        </div>
-
-
-         <div class="col-md-2">
-          <a href = "#" data-bs-toggle="popover" data-bs-trigger="focus" title="Полное название статьи. Может быть длинным например настолько" data-bs-html='true' data-bs-content="Комментировали: 32<br /> Теги: <a href = '#'>#тег</a>">
-              <div class="container icon_desktop ">
-                <div class="row">
-                  <div class="col-2">
-
-                  </div>
-                  <div class="col-8">
-                    <img src = "{{route('welcome')}}/user_image/1.jpg" class="img-fluid" />
-                  </div>
-                  <div class="col-2">
-
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-12">
-                    <p class="text-center fw-bolder">Название статьи</p>
-                  </div>
-                </div>
-              </div>
-          </a>
-        </div>
-
-
-         <div class="col-md-2">
-          <a href = "#" data-bs-toggle="popover" data-bs-trigger="focus" title="Полное название статьи. Может быть длинным например настолько" data-bs-html='true' data-bs-content="Комментировали: 32<br /> Теги: <a href = '#'>#тег</a>">
-              <div class="container icon_desktop ">
-                <div class="row">
-                  <div class="col-2">
-
-                  </div>
-                  <div class="col-8">
-                    <img src = "{{route('welcome')}}/user_image/1.jpg" class="img-fluid" />
-                  </div>
-                  <div class="col-2">
-
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-12">
-                    <p class="text-center fw-bolder">Название статьи</p>
-                  </div>
-                </div>
-              </div>
-          </a>
-        </div>
-
-         <div class="col-md-2">
-          <a href = "#" data-bs-toggle="popover" data-bs-trigger="focus" title="Полное название статьи. Может быть длинным например настолько" data-bs-html='true' data-bs-content="Комментировали: 32<br /> Теги: <a href = '123'>#тег</a>">
-              <div class="container icon_desktop ">
-                <div class="row">
-                  <div class="col-2">
-
-                  </div>
-                  <div class="col-8">
-                    <img src = "{{route('welcome')}}/user_image/1.jpg" class="img-fluid" />
-                  </div>
-                  <div class="col-2">
-
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-12">
-                    <p class="text-center fw-bolder">Название статьи</p>
-                  </div>
-                </div>
-              </div>
-          </a>
-        </div>
-
-
-      </div>
-      <div class="row">
-      	<div class="col-md-2">
-      		<a href = "{{ route('newArticle', ['conspekt', 'sass']) }}">
-              <div class="container icon_desktop ">
-                <div class="row">
-                  <div class="col-2">
-
-                  </div>
-                  <div class="col-8">
-                    <img src = "{{route('welcome')}}/data_image/add.png" class="img-fluid" />
-                  </div>
-                  <div class="col-2">
-
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-12">
-                    <p class="text-center fw-bolder">Новая статья</p>
-                  </div>
-                </div>
-              </div>
-          </a>
-      	</div>
-      	<div class="col-md-2">
-
-      	</div>
-      	<div class="col-md-2">
-
-      	</div>
-      	<div class="col-md-2">
-
-      	</div>
-      	<div class="col-md-2">
-
-      	</div>
-      	<div class="col-md-2">
-
-      	</div>
-      </div>
-
-    <div class="pagi">
-      <nav aria-label="..." class="mt-3 ">
-        <ul class="pagination pagination-sm">
-          <li class="page-item active" aria-current="page">
-            <span class="page-link">1</span>
-          </li>
-          <li class="page-item"><a class="page-link" href="#">2</a></li>
-          <li class="page-item"><a class="page-link" href="#">3</a></li>
-        </ul>
-      </nav>
     </div>
 
+@endsection
+</div>
 
-
-
+@section('footer_link')
+<a href ="{{route('welcome')}}">Home</a>\
 @endsection

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title') Gifit - {{$data_cat[0] -> name_category}} @endsection
+@section('title') Gifit - {{$data_subc[0] -> name_category}} @endsection
 
 
 @section('content')
@@ -42,15 +42,39 @@
           </a>
         </div>
 @endforeach
+
+<div class="col-md-2">
+  <a href = "{{ route('newArticle', [$data_cat->value_category, $data_subc[0]-> value_category]) }}">
+      <div class="container icon_desktop ">
+        <div class="row">
+          <div class="col-2">
+
+          </div>
+          <div class="col-8">
+            <img src = "{{route('welcome')}}/data_image/add.png" class="img-fluid p-2" />
+          </div>
+          <div class="col-2">
+
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <p class="text-center fw-bolder">Новая статья</p>
+          </div>
+        </div>
+      </div>
+  </a>
+</div>
 </div>
     <div class="container-fluid mt-3">
       <div class="pagination_bootstrap">
       {{ $data_article -> links() }}
       </div>
     </div>
+
 @endsection
 
 
 @section('footer_link')
-<a href ="{{route('welcome')}}">Home</a>\<a href = "{{route('categoryPage', $data_cat[0]->value_category)}}">{{$data_cat[0]->name_category}}</a>\
+<a href ="{{route('welcome')}}">Home</a>\<a href = "{{route('categoryPage', $data_cat->value_category)}}"> {{ $data_cat->name_category }} </a>\<a href = "{{route('welcome')}}/subcategory/{{$data_subc[0]-> value_category}} ">{{$data_subc[0] -> name_category}}</a>
 @endsection
