@@ -57,7 +57,7 @@
 .link_group{
   cursor:pointer;
 }
-.close{
+.close, .close_h{
   width: 20px;
   height: 20px;
   border-radius: 10px;
@@ -66,4 +66,13 @@
   position: absolute;
   top: 2%;
   right: 1%;
+}
+
+.close_href{
+  padding:5px;
+}
+
+.navigation_article a
+{
+  color:white;
 }

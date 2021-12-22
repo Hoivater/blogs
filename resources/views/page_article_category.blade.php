@@ -19,6 +19,8 @@
               {{$key -> description}}
             </p>
             <hr/>
+            {{$key -> tags}}
+            <hr/>
             <p>{{$key -> created_at}}</p>">
               <div class="container icon_desktop">
                 <div class="row">

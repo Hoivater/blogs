@@ -98,10 +98,12 @@ class ArticleController extends Controller
     public function AddTagsF($tags_array)
     {
         //dd($tags_array);
+        $html_all = "";
         for($i = 0; $i <= count($tags_array)-1; $i++)
         {
             $tags = new Tags();
-            $search = $tags -> where('tags', '=', $tags_array[$i]) -> get();
+            $ttranscript = Helpers::TranscriptionHelpers(trim($tags_array[$i]));
+            $search = $tags -> where('tags', '=', trim($tags_array[$i])) -> get();
             if(isset($search[0] -> tags))
             {
                 $search[0] -> increment('count');
@@ -110,14 +112,18 @@ class ArticleController extends Controller
             else
             {
                 $tagis = new Tags();
-                $tagis -> tags = $tags_array[$i];
-                $tagis -> tags_transcript = Helpers::TranscriptionHelpers($tags_array[$i]);
-                $tagis -> count = 0;
+                $tagis -> tags = trim($tags_array[$i]);
+                $tagis -> tags_transcript = $ttranscript;
+                $tagis -> count = 1;
                 $tagis -> save();
             }
+            $html_tegs = "<a href='".route('tagsOne', $ttranscript)."' class='tags'>".trim($tags_array[$i])."</a>";
+            $html_all .= " | ".$html_tegs;
             unset($tags);
         }
-        return implode(", ", $tags_array);
+        
+
+        return $html_all;
     }
     public function valueFromKeyCategory($key)
     {

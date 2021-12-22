@@ -33,6 +33,48 @@ html {
   text-align: center;
 }
 
+.one_article_body {
+  background: white;
+  margin-top: 0;
+  border: 5px solid #006FFF;
+  padding: 1%;
+  width: 100%;
+}
+
+.one_article_header {
+  background: #006FFF;
+  margin-bottom: 0;
+  font-weight: bold;
+  color: white;
+}
+.one_article_header a {
+  text-decoration: none;
+  color: white;
+}
+
+.tags {
+  padding: 3px;
+  font-weight: bold;
+}
+
+.icon_desktop {
+  cursor: pointer;
+}
+
+.icon_desktop:hover {
+  background: #F8F9FA7E;
+}
+
+.desktop_border {
+  height: 80vh;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+.desktop_border a {
+  text-decoration: none;
+  color: black;
+}
+
 .block {
   height: 100vh;
   max-height: 100vh;
@@ -97,7 +139,7 @@ html {
   cursor: pointer;
 }
 
-.close {
+.close, .close_h {
   width: 20px;
   height: 20px;
   border-radius: 10px;
@@ -108,39 +150,10 @@ html {
   right: 1%;
 }
 
-.one_article_body {
-  background: white;
-  margin-top: 0;
-  border: 5px solid #006FFF;
-  padding: 1%;
-  width: 100%;
+.close_href {
+  padding: 5px;
 }
 
-.one_article_header {
-  background: #006FFF;
-  margin-bottom: 0;
-  font-weight: bold;
+.navigation_article a {
   color: white;
-}
-.one_article_header a {
-  text-decoration: none;
-  color: white;
-}
-
-.icon_desktop {
-  cursor: pointer;
-}
-
-.icon_desktop:hover {
-  background: #F8F9FA7E;
-}
-
-.desktop_border {
-  height: 80vh;
-  overflow: hidden;
-  overflow-y: scroll;
-}
-.desktop_border a {
-  text-decoration: none;
-  color: black;
 }

@@ -45,7 +45,7 @@
 //     $("#mod_tags").css("display", "none");
 //     $(ids).css("display", "block");
 // });
-$(document).on('click', '.scrollto i', function(event){
+$(document).on('click', '.scrollto i, .soder', function(event){
     event.preventDefault();
     var idElement = "mo"+event.target.id;
     var ids = '#'+idElement;
@@ -54,6 +54,7 @@ $(document).on('click', '.scrollto i', function(event){
     $("#mod_search").css("display", "none");
     $("#mod_groups").css("display", "none");
     $("#mod_tags").css("display", "none");
+    $("#mod_soder").css("display", "none");
     $(ids).css("display", "block");
 });
 $(document).on('click', '.close', function(event){
@@ -62,4 +63,5 @@ $(document).on('click', '.close', function(event){
     $("#mod_search").css("display", "none");
     $("#mod_groups").css("display", "none");
     $("#mod_tags").css("display", "none");
+    $("#mod_soder").css("display", "none");
 });

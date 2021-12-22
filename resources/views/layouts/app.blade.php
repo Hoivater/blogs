@@ -39,31 +39,17 @@
     <div class="header m-2 mt-3  ml-0 pl-0">
         <img src="{{ route('welcome')}}/data_image/header.svg">
     </div>
+
     <div class="container-fluid desktop_border">
     @yield('content')
+    @yield('navigation_article')
+    @yield('commentary')
     </div>
 
-
-
-
-
-    <div class="menu_pod" id = "mod_menu">
-      <div class="header_menu">
-        <p class = "m-0 p-2">Меню для gifit.ru.html</p>
-        <div class = "close"></div>
-      </div>
-      <div class="body_menu">
-           <h5>&lt;nav class = 'menu'&gt;</h5>
-            <h5>&nbsp; &lt;a href = '/conspect'&gt;</h5> 
-            <h5>&nbsp;&nbsp;<a href = '#' class = 'm_menu'>Конспект [17]</a> <small><i class="fas fa-arrow-right"></i> <a href = '#' class = 'v_menu'>Laravel [10]</a> /  <a href = '#' class = 'v_menu'>Laravel [10]</a> /  <a href = '#' class = 'v_menu'>Laravel [10]</a> /  <a href = '#' class = 'v_menu'>Laravel [10]</a> /  <a href = '#' class = 'v_menu'>Laravel [10]</a> / <a href = '#' class = 'v_menu'>Github[23]</a>  / <a href = '#' class = 'v_menu'>SASS и SCSS[3]</a></small></h5>
-            <h5>&nbsp; &lt;/a&gt;</h5>
-            <h5>&nbsp; &lt;a href = ''&gt;</h5> 
-            <h5>&nbsp;&nbsp;<a href = '#' class = 'm_menu'>Самые официальные страницы [1]</a> <small><i class="fas fa-arrow-right"></i> <a href = '#'>MyPtoBot [10]</a></small></h5>
-            <h5>&nbsp; &lt;/a&gt;</h5>
-        <h5>&lt;/nav&gt;</h5>
-      </div>
-    </div>
     
+    
+
+
 
 
 
@@ -92,11 +78,11 @@
 
     <div class="menu_pod" id = "mod_groups">
       <div class="header_menu">
-        <p class = "m-0 p-2">Группы</p>
+        <p class = "m-0 p-2">О сайте</p>
         <div class = "close"></div>
       </div>
       <div class="body_menu">
-
+        <p>Сайт предполагает использования преимуществ какой-либо формации Сайт предполагает использования преимуществ какой-либо формации</p>
       </div>
     </div>
 

@@ -14,8 +14,8 @@
       </li>
 
       <li>
-        <a href="#" class="nav-link py-3 border-bottom scrollto" id = "groups" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Группы">
-            <i class="far fa-object-group p-2" id = 'd_groups'></i>
+        <a href="{{route('groups')}}" class="nav-link py-3 border-bottom">
+            <span class="fas fa-layer-group p-2"></span>
         </a>
       </li>
 
@@ -36,6 +36,11 @@
         </a>
       </li>
 
+      <li>
+        <a href="#" class="nav-link py-3 border-bottom scrollto" id = "groups">
+            <i class="fas fa-info p-2" id = 'd_groups'></i>
+        </a>
+      </li>
     </ul>
 
 

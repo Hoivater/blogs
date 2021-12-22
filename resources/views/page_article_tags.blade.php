@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
-@section('title') Главная страница @endsection
-
+@section('title') #{{$value_tags}} @endsection
 
 
 @section('content')
+
 <div class="row" data-masonry='{"percentPosition": true }'>
 @foreach($data_article as $key)
     <div class="col-md-2">
@@ -50,10 +50,9 @@
       {{ $data_article -> links() }}
       </div>
     </div>
-
 @endsection
-</div>
+
 
 @section('footer_link')
-<a href ="{{route('welcome')}}">Home</a>\
+<a href ="{{route('welcome')}}">Home</a>\<a href = "{{route('tags')}}">Теги</a>\#{{$value_tags}}
 @endsection

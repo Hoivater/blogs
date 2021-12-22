@@ -22,6 +22,12 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 #вывод страницы меню
 Route::get('/menu', 'App\Http\Controllers\MenuController@menuPage') -> name('menus');
 
+#вывод страницы групп
+Route::get('/groups', 'App\Http\Controllers\GroupsController@groupPage') -> name('groups');
+
+#вывод страницы статей соответствующей соответствующему тегу
+Route::get('/tags/{tags}', 'App\Http\Controllers\TagsController@tagsPageOne') -> name('tagsOne');
+
 #вывод страницы тегов
 Route::get('/tags', 'App\Http\Controllers\TagsController@tagsPage') -> name('tags');
 
