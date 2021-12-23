@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Article;
+use App\Models\Groups;
 use Illuminate\Pagination\Paginator;
 
 use App\Http\Requests\ArticleRequest;
+use App\Http\Controllers\GroupsController;
 use App\Models\Menu;
 use App\Models\Tags;
 use App\Library\Helpers;
@@ -90,8 +92,32 @@ class ArticleController extends Controller
             $key -> key_subcategory = $ar[1];
             $key -> value_subcategory = $this -> valueFromKeyCategory($ar[1]);
             $key -> value_category = $this -> valueFromKeyCategory($ar[0]);
+            #переменные для навигации по группе
+            #вперед и назад
+            $keyA = $this -> keyAF($key -> id);
+            #array(array(key, value), array(key, value), $arr)
         }
         return $data;
+    }
+
+    public function keyAF($id)
+    {
+        $grps = new Groups();
+        $data = $grps -> where('id_articles', 'LIKE', '%'.$id.'%') -> get();
+        if(isset($data[0]-> id))
+        {
+            $string = $data[0] -> id_articles;
+            $gc = new GroupsController();
+            $html_soder = $gc -> htmlGroupF($string, $id);#код содеражания 3-ий элемент массива
+        }
+        $array_Id_article = explode(",", $data[0] -> id_articles);
+        $idA = "";
+        $idB = "";
+        for($i = 0; $i <= count($array_Id_article)-1; $i++)
+        {
+            
+        }
+
     }
     #Важно при добавлении тегов обратиться к таблице тегов и проверить наличие их там,
     #если их там нет, то добавить, если есть, то увеличить счетчик на один

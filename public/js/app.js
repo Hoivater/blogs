@@ -62,6 +62,19 @@ $(document).on('click', '.close', function (event) {
   $("#mod_tags").css("display", "none");
   $("#mod_soder").css("display", "none");
 });
+$(document).on('click', '.copy_id', function (event) {
+  event.preventDefault();
+  var idElement = event.target.id;
+  var inputText = $('input#artGroups').val();
+
+  if (inputText == "") {
+    var result = idElement;
+  } else {
+    var result = inputText + ", " + idElement;
+  }
+
+  $('input#artGroups').val(result);
+});
 
 /***/ }),
 

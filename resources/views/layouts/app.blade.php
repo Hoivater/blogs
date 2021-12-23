@@ -39,7 +39,6 @@
     <div class="header m-2 mt-3  ml-0 pl-0">
         <img src="{{ route('welcome')}}/data_image/header.svg">
     </div>
-
     <div class="container-fluid desktop_border">
     @yield('content')
     @yield('navigation_article')

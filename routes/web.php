@@ -25,6 +25,7 @@ Route::get('/menu', 'App\Http\Controllers\MenuController@menuPage') -> name('men
 #вывод страницы групп
 Route::get('/groups', 'App\Http\Controllers\GroupsController@groupPage') -> name('groups');
 
+
 #вывод страницы статей соответствующей соответствующему тегу
 Route::get('/tags/{tags}', 'App\Http\Controllers\TagsController@tagsPageOne') -> name('tagsOne');
 
@@ -63,3 +64,15 @@ Route::post('/admin/new_category_page/add_podcategory', 'App\Http\Controllers\Me
 
 #ДОБАВЛЕНИЕ НОВОЙ СТАТЬИ
 Route::post('/admin/add_article', 'App\Http\Controllers\ArticleController@addArticle') -> name('addArticleRN');
+
+#ДОБАВЛЕНИЕ НОВОЙ СТАТЬИ
+Route::post('/admin/add_article', 'App\Http\Controllers\GroupsController@addGroups') -> name('addGroupsRN');
+
+#ДОБАВЛЕНИЕ НОВОЙ СТАТЬИ
+Route::post('/admin/add_article_in_groups', 'App\Http\Controllers\GroupsController@addArticleGroups') -> name('addArticleInGroupsRN');
+
+#вывод страницы создания групп
+Route::get('/admin/groups', 'App\Http\Controllers\GroupsController@newGroupPage') -> name('newgroups');
+
+#вывод страницы создания групп
+Route::get('/admin/groups/add/{id}', 'App\Http\Controllers\GroupsController@addArticleInGroup') -> name('addArticleGroup');

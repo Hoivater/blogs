@@ -57,6 +57,10 @@ html {
   font-weight: bold;
 }
 
+.copy_id {
+  cursor: pointer;
+}
+
 .icon_desktop {
   cursor: pointer;
 }
