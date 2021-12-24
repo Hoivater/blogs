@@ -12,8 +12,9 @@ class GroupsController extends Controller
 
 	public function groupPage()
 	{
+		Paginator::useBootstrap();
 		$group = new Groups();
-		$data = $group -> orderBy('id', 'desc') -> get();
+		$data = $group -> orderBy('id', 'desc') -> paginate(18);
 
 		$data = $this -> groupsTranslF($data);
 		return view('group_page', ['data' => $data]);
@@ -76,7 +77,7 @@ class GroupsController extends Controller
 		{
 			$article = new Article();
 			$dataOne = $article -> find((int) $arrayIdGroup[$i]);
-			if($arrayIdGroup == $id)
+			if($arrayIdGroup[$i] == $id)
 				$res = $startE.route('articles', $dataOne->link).$centerE.$dataOne->name.$endE;	
 			else
 				$res = $start.route('articles', $dataOne->link).$center.$dataOne->name.$end;

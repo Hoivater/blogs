@@ -23,7 +23,8 @@
           <li>
           <a href = '{{route('addArticleGroup', $key -> id)}}'>Добавить статью</a>
         </li>
-      </ol>">
+      </ol>
+      <p>{{$key -> description}}</p>">
               <div class="container icon_desktop">
                 <div class="row">
                   <div class="col-2">
@@ -70,7 +71,11 @@
           </a>
       	</div>
 
-
+  <div class="container-fluid mt-3">
+    <div class="pagination_bootstrap">
+    {{ $data -> links() }}
+    </div>
+  </div>
 
 </div>
 

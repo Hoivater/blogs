@@ -36,7 +36,10 @@
 @endsection
 
 @section('navigation_article')
-<div class = "navigation_article text-center mt-3"><a href = '#' class="btn btn-primary">< Описание пророчества</a> <a class="soder scrollto btn btn-primary" id = "d_soder">Содержание</a> <a href = '#' class="btn btn-primary">Прощание ></a></div>
+
+@if(isset($data_article -> navi))
+<div class = "navigation_article text-center mt-3"><a href = "{{route('articles', $data_article -> keyA)}}" class="btn btn-primary">< {{$data_article -> valueA}}</a> <a class="soder scrollto btn btn-primary" id = "d_soder">Содержание</a> <a href = "{{route('articles', $data_article -> keyB)}}" class="btn btn-primary">{{$data_article -> valueB}} ></a></div>
+@endif
 
 
 
@@ -48,18 +51,7 @@
       </div>
       <div class="body_menu">
         <ol>
-        	<li>
-        		<a href = "#">Статья 1 lodod frifrig rjgij git dmiem ifemifir ring</a>	
-        	</li>
-        	<li>
-        		<mark><a href = "#">Статья lodod frifrig rjgij</a></mark>
-        	</li>
-        	<li>
-        		<a href = "#">Статья lodod frifrig rjgij</a>	
-        	</li>
-        	<li>
-        		<a href = "#">Статья lodod frifrig rjgij4</a>	
-        	</li>
+        {!!$data_article -> html_soder!!}
         </ol>
       </div>
     </div>
