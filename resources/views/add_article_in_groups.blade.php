@@ -15,27 +15,27 @@
         <div class="body_menu">
           <div class="container-fluid">
             <div class="row">
-              <div class="col-1">
-                <p>Id</p>
+              <div class="col-6">
+                <p><b>Id</b></p>
               </div>
-              <div class="col-5">
-                <p>Название</p>
+              <div class="col-3">
+                <p><b>Название</b></p>
               </div>
-              <div class="col-4">
-                <p>Описание</p> 
+              <div class="col-3">
+                <p><b>Описание</b></p>
               </div>
             </div>
 
 
             @foreach($data as $key)
             <div class="row">
-              <div class="col-1">
-                <p class="copy_id" id = '{{$key -> id}}'>{{$key -> id}}</p>
+              <div class="col-6">
+                <p class="copy_id" id = '{{$key -> link}}'>{{$key -> link}}</p>
               </div>
-              <div class="col-5">
+              <div class="col-3">
                 <p>{{$key -> name}}</p>
               </div>
-              <div class="col-4">
+              <div class="col-3">
                 <p>{{$key -> description}}</p> 
               </div>
             </div>
@@ -58,8 +58,8 @@
 <form name = "add" method = 'post' action = "{{ route('addArticleInGroupsRN') }}" enctype="multipart/form-data">
 {{csrf_field()}}
     <div class="mb-3">
-      <label for="artGroups" class="form-label">Перечисление ID статей: </label>
-      <input type="text"  id="artGroups" name = "id_articles" aria-describedby="nameHelp" value = "{{$description_data -> id_articles}}">
+      <label for="artGroups" class="form-label">Перечисление ссылок статей: </label>
+      <textarea type="text"  id="artGroups" class="form-control" name = "id_articles">{{$description_data -> id_articles}}</textarea>
     <button type="submit" class="btn btn-primary">Создать группу</button>
     </div>
     <input type = 'text' class="hidden" value = '{{$description_data -> id}}' name = 'id' />

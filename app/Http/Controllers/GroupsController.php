@@ -17,6 +17,7 @@ class GroupsController extends Controller
 		$data = $group -> orderBy('id', 'desc') -> paginate(18);
 
 		$data = $this -> groupsTranslF($data);
+
 		return view('group_page', ['data' => $data]);
 	}
 	public function newGroupPage()
@@ -40,7 +41,7 @@ class GroupsController extends Controller
 		$grps = new Groups();
 		$description_data = $grps -> find($id);
 		$article = new Article();
-		$data = $article -> select('id', 'name', 'description') -> orderBy('id', 'desc') -> paginate(30);
+		$data = $article -> select('link', 'name', 'description') -> orderBy('id', 'desc') -> paginate(30);
 
 		return view('add_article_in_groups', ['description_data' => $description_data, 'data' => $data]);
 	}
@@ -57,7 +58,7 @@ class GroupsController extends Controller
 	{
 		#необходимо составить в виде: <li><a href = ""></li>
 		foreach ($data as $key) {
-				$str = $key ->id_articles;
+				$str = $key -> id_articles;
 				if($str != "")
 					$key -> id_articles = $this -> htmlGroupF($str, $idsp = '');
 		}
@@ -67,22 +68,25 @@ class GroupsController extends Controller
 	{
 		$arrayIdGroup = explode(",", $stringIdGroup);
 		$result = "";
-			$start = "<li><a href = '";
-			$center = "'>";
-			$end = "</a></li>";
-			$startE = "<li><a href = '";
-			$centerE = "'><b>";
-			$endE = "</b></a></li>";
+		$start = "<li><a href = '";
+		$center = "'>";
+		$end = "</a></li>";
+		$startE = "<li><a href = '";
+		$centerE = "'><b>";
+		$endE = "</b></a></li>";
+
+		$art = new Article();
 		for($i = 0; $i <= count($arrayIdGroup)-1; $i++)
 		{
-			$article = new Article();
-			$dataOne = $article -> find((int) $arrayIdGroup[$i]);
-			if($arrayIdGroup[$i] == $id)
-				$res = $startE.route('articles', $dataOne->link).$centerE.$dataOne->name.$endE;	
-			else
-				$res = $start.route('articles', $dataOne->link).$center.$dataOne->name.$end;
+			$data_value = $art -> where('link', '=', trim($arrayIdGroup[$i])) -> get();
+			if(isset($data_value[0] -> id)){
+				$dataOne = $art -> find($data_value[0] -> id);
+				if($data_value[0] -> id == $id)
+					$res = $startE.route('articles', $dataOne->link).$centerE.$dataOne->name.$endE;
+				else
+					$res = $start.route('articles', $dataOne->link).$center.$dataOne->name.$end;
+			}
 			$result .= $res;
-			$res ="";
 		}
 		return $result;
 	}

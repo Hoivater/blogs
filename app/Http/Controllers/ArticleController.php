@@ -20,6 +20,15 @@ class ArticleController extends Controller
 
         return view('new_article', ['category' => $category, 'podcategory' => $podcategory]);
     }
+    public function redactionArticlePage($id){
+        $article = new Article();
+        $data = $article -> find($id);
+        $data_category = explode("&", $data -> category);
+        $category = $data_category[0];
+        $podcategory = $data_category[1];
+        return view('redaction_article', ['category' => $category, 'podcategory' => $podcategory, 'data' => $data]);
+    }
+
     public function addArticle(ArticleRequest $arr){
         
         $article = new Article();
@@ -48,8 +57,9 @@ class ArticleController extends Controller
         $menu = new Menu();
         $data_subcategory = $menu -> where('value_category', '=', $name_subcategory) -> get();
         $article = new Article();
-        $data_article = $article -> where('category', 'LIKE', '% '.$name_subcategory.' %') -> paginate(18);
+        $data_article = $article -> where('category', 'LIKE', '%'.$name_subcategory.'%') -> paginate(18);
         $data_article = $this -> translF($data_article);
+
         $data_category = $menu -> find($data_subcategory[0] -> podkategory);
         return view('page_article_subcategory', ['data_cat' => $data_category,'data_subc' => $data_subcategory, 'data_article' => $data_article]);
     }
@@ -78,7 +88,7 @@ class ArticleController extends Controller
 
         $data_article = $article -> where('link', '=', $link_article) -> get();
         $grps = new Groups();
-        $search = $grps -> where('id_articles', 'LIKE', '%'.$data_article[0] -> id.' %') -> get();
+        $search = $grps -> where('id_articles', 'LIKE', '%'.$data_article[0] -> link.'%') -> get();
         if(isset($search[0] -> id))
         {
             $data_article = $this -> translOneF($data_article);
@@ -101,7 +111,7 @@ class ArticleController extends Controller
                 $key -> value_category = $this -> valueFromKeyCategory($ar[0]);
                 #переменные для навигации по группе
                 #вперед и назад
-                $keyA = $this -> keyAF($key -> id);
+                $keyA = $this -> keyAF($key -> link);
                 
                 #array(array(key, value), array(key, value), $arr)
                 if(is_array($keyA))
@@ -142,12 +152,15 @@ class ArticleController extends Controller
         {
             $string = $data[0] -> id_articles;
             $gc = new GroupsController();
-            $html_soder = $gc -> htmlGroupF($string, $id);#код содеражания 3-ий элемент массива
-
+            $idreal = $this -> realIdF($id);
+            $html_soder = $gc -> htmlGroupF($string, $idreal);#код содеражания 3-ий элемент массива
         }
 
         $array_Id_article = explode(",", $data[0] -> id_articles);
-        
+        for($j = 0; $j <= count($array_Id_article)-1;$j++)
+        {
+            $array_Id_article[$j] = trim($array_Id_article[$j]);
+        }
         $idA = "";
         $idB = "";
         for($i = 0; $i <= count($array_Id_article)-1; $i++)
@@ -173,7 +186,12 @@ class ArticleController extends Controller
                     $idB = $array_Id_article[$i+1];
                 }
             }
+
         }
+        $idA = $this -> realIdF($idA);
+        $idB = $this -> realIdF($idB);
+
+
         $article = new Article();
         $dataA = $article -> find($idA);
         $dataB = $article -> find($idB);
@@ -187,6 +205,12 @@ class ArticleController extends Controller
 
         return $ar;
 
+    }
+    public function realIdF($link)
+    {
+        $article = new Article();
+        $data = $article -> where('link', '=', trim($link)) -> get();
+        return $data[0] -> id;
     }
     #Важно при добавлении тегов обратиться к таблице тегов и проверить наличие их там,
     #если их там нет, то добавить, если есть, то увеличить счетчик на один

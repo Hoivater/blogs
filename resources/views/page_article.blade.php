@@ -9,6 +9,9 @@
         <div class="header_menu">
           <p class = "m-0 p-2">{{$data_article -> name}}</p>
           <div class = "close_h"><a href = "{{route('subcategory', $data_article -> key_subcategory)}}" class = 'close_href'>x</a></div>
+
+
+          <div class = "redaction"><a href = "{{route('redactionArticle', $data_article -> id)}}" class = 'close_href'>/</a></div>
         </div>
         <div class="body_menu">
         	@if($errors -> any())
@@ -39,14 +42,14 @@
 
 @if(isset($data_article -> navi))
 <div class = "navigation_article text-center mt-3"><a href = "{{route('articles', $data_article -> keyA)}}" class="btn btn-primary">< {{$data_article -> valueA}}</a> <a class="soder scrollto btn btn-primary" id = "d_soder">Содержание</a> <a href = "{{route('articles', $data_article -> keyB)}}" class="btn btn-primary">{{$data_article -> valueB}} ></a></div>
-@endif
+
 
 
 
 
     <div class="menu_pod" id = "mod_soder">
       <div class="header_menu">
-        <p class = "m-0 p-2">О сайте</p>
+        <p class = "m-0 p-2">Содержание группы</p>
         <div class = "close"></div>
       </div>
       <div class="body_menu">
@@ -55,7 +58,7 @@
         </ol>
       </div>
     </div>
-
+@endif
 
 @endsection
 

@@ -51,6 +51,10 @@ Route::get('/admin/new_category_page', 'App\Http\Controllers\MenuController@newC
 Route::get('/admin/new_articles/{category}/{podkategory}',
  'App\Http\Controllers\ArticleController@newArticlePage') -> name('newArticle');
 
+#страница редактирования статьи
+Route::get('/admin/redaction_articles/{id}',
+ 'App\Http\Controllers\ArticleController@redactionArticlePage') -> name('redactionArticle');
+
 
 #вывод страницы добавления подкатегории
 Route::get('/admin/new_category_page/addPodCategory/{id_kategory}', 'App\Http\Controllers\MenuController@pagePodcategory') -> name('addPodCategory');
@@ -66,6 +70,11 @@ Route::post('/admin/new_category_page/add_podcategory', 'App\Http\Controllers\Me
 Route::post('/admin/add_article', 'App\Http\Controllers\ArticleController@addArticle') -> name('addArticleRN');
 
 #ДОБАВЛЕНИЕ НОВОЙ СТАТЬИ
+Route::post('/admin/redaction_article', function(){
+    return "OK";
+}) -> name('redactionArticleRN');
+
+#ДОБАВЛЕНИЕ НОВОЙ СТАТЬИ
 Route::post('/admin/add_article', 'App\Http\Controllers\GroupsController@addGroups') -> name('addGroupsRN');
 
 #ДОБАВЛЕНИЕ НОВОЙ СТАТЬИ
@@ -74,5 +83,5 @@ Route::post('/admin/add_article_in_groups', 'App\Http\Controllers\GroupsControll
 #вывод страницы создания групп
 Route::get('/admin/groups', 'App\Http\Controllers\GroupsController@newGroupPage') -> name('newgroups');
 
-#вывод страницы создания групп
+#вывод страницы где можно добавить статью в группу
 Route::get('/admin/groups/add/{id}', 'App\Http\Controllers\GroupsController@addArticleInGroup') -> name('addArticleGroup');

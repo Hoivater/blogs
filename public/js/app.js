@@ -65,7 +65,7 @@ $(document).on('click', '.close', function (event) {
 $(document).on('click', '.copy_id', function (event) {
   event.preventDefault();
   var idElement = event.target.id;
-  var inputText = $('input#artGroups').val();
+  var inputText = $('textarea#artGroups').val();
 
   if (inputText == "") {
     var result = idElement;
@@ -73,7 +73,7 @@ $(document).on('click', '.copy_id', function (event) {
     var result = inputText + ", " + idElement;
   }
 
-  $('input#artGroups').val(result);
+  $('textarea#artGroups').val(result);
 });
 
 /***/ }),
