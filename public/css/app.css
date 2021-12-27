@@ -79,6 +79,25 @@ html {
   color: black;
 }
 
+.all_icon {
+  position: relative;
+}
+
+.info_article {
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  background: #7aff7aa3;
+  cursor: pointer;
+  position: absolute;
+  top: 2%;
+  right: 20%;
+}
+
+.info_article:hover {
+  background: #7aff7a;
+}
+
 .block {
   height: 100vh;
   max-height: 100vh;
@@ -129,7 +148,7 @@ html {
 }
 
 .content, .menu_bottom {
-  background: url(/images/menu.svg?f465ec4c996c214d5d5dd27974151aa0) no-repeat fixed;
+  background: url(/images/menu.svg?2bb39a008fcd3cde2b881601ea0db444) no-repeat fixed;
   background-size: cover;
   padding: 0;
 }

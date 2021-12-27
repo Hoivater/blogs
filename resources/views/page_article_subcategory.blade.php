@@ -7,21 +7,8 @@
 
 <div class="row" data-masonry='{"percentPosition": true }'>
 @foreach($data_article as $key)
-    <div class="col-md-2">
-          <a href = "#" data-bs-toggle="popover" data-bs-html='true' title="<a href = '{{route('articles', $key -> link)}}'>{{$key -> name}}" data-bs-content="
-            <p>
-              <small>
-                <a href = '{{route('categoryPage', $key -> key_category)}}'>{{$key -> value_category}}</a> 
-                > 
-                <a href = '{{route('subcategory', $key -> key_subcategory)}}'>{{$key -> value_subcategory}}</a>
-              </small>
-            <p>
-              {{$key -> description}}
-            </p>
-            <hr/>
-            {{$key -> tags}}
-            <hr/>
-            <p>{{$key -> created_at}}</p>">
+    <div class="col-md-2 all_icon">
+          <a href = "{{route('articles', $key -> link)}}">
               <div class="container icon_desktop">
                 <div class="row">
                   <div class="col-2">
@@ -40,9 +27,25 @@
 
                   </div>
                 </div>
-              </div>
-          </a>
         </div>
+      </a>
+          <a href = "#" data-bs-toggle="popover" data-bs-html='true' class="info_article" title="<a href = '{{route('articles', $key -> link)}}'>{{$key -> name}}" data-bs-content="
+            <p>
+              <small>
+                <a href = '{{route('categoryPage', $key -> key_category)}}'>{{$key -> value_category}}</a> 
+                > 
+                <a href = '{{route('subcategory', $key -> key_subcategory)}}'>{{$key -> value_subcategory}}</a>
+              </small>
+            <p>
+              {{$key -> description}}
+            </p>
+            <hr/>
+            {{$key -> tags}}
+            <hr/>
+            <p>{{$key -> created_at}}</p>" data-bs-trigger="focus">
+            <i class="fas fa-info p-2 pl-3"></i>
+          </a>
+      </div>
 @endforeach
 
 <div class="col-md-2">

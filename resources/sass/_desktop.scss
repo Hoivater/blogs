@@ -14,3 +14,19 @@
         color:black;
        }
 }
+.all_icon{
+        position:relative;
+}
+.info_article{
+        width: 30px;
+        height: 30px;
+        border-radius: 15px;
+        background: #7aff7aa3;
+        cursor: pointer;
+        position: absolute;
+        top: 2%;
+        right: 20%;
+}
+.info_article:hover{
+        background:#7aff7a;
+}

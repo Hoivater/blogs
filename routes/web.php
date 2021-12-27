@@ -63,21 +63,20 @@ Route::get('/admin/new_category_page/addPodCategory/{id_kategory}', 'App\Http\Co
 #ДОБАВЛЕНИЕ НОВОЙ КАТЕГОРИИ
 Route::post('/admin/new_category_page/add_category', 'App\Http\Controllers\MenuController@addCategory') -> name('addCategoryRN');
 
+
+#ДОБАВЛЕНИЕ НОВОГО ИЗОБРАЖЕНИЯ
+Route::post('/admin/images/load_image', 'App\Http\Controllers\ImageController@addImage') -> name('addImageRN');
+
 #ДОБАВЛЕНИЕ НОВОЙ ПОДКАТЕГОРИИ
 Route::post('/admin/new_category_page/add_podcategory', 'App\Http\Controllers\MenuController@addPodcategory') -> name('addPodcategoryRN');
 
-#ДОБАВЛЕНИЕ НОВОЙ СТАТЬИ
-Route::post('/admin/add_article', 'App\Http\Controllers\ArticleController@addArticle') -> name('addArticleRN');
+#РЕДАКТИРОВАНИЕ СТАТЬИ
+Route::post('/admin/redaction_article', 'App\Http\Controllers\ArticleController@redactionArticle') -> name('redactionArticleRN');
 
-#ДОБАВЛЕНИЕ НОВОЙ СТАТЬИ
-Route::post('/admin/redaction_article', function(){
-    return "OK";
-}) -> name('redactionArticleRN');
+#ДОБАВЛЕНИЕ ГРУППЫ
+Route::post('/admin/add_group', 'App\Http\Controllers\GroupsController@addGroups') -> name('addGroupsRN');
 
-#ДОБАВЛЕНИЕ НОВОЙ СТАТЬИ
-Route::post('/admin/add_article', 'App\Http\Controllers\GroupsController@addGroups') -> name('addGroupsRN');
-
-#ДОБАВЛЕНИЕ НОВОЙ СТАТЬИ
+#ДОБАВЛЕНИЕ Статей в группу
 Route::post('/admin/add_article_in_groups', 'App\Http\Controllers\GroupsController@addArticleGroups') -> name('addArticleInGroupsRN');
 
 #вывод страницы создания групп
@@ -85,3 +84,12 @@ Route::get('/admin/groups', 'App\Http\Controllers\GroupsController@newGroupPage'
 
 #вывод страницы где можно добавить статью в группу
 Route::get('/admin/groups/add/{id}', 'App\Http\Controllers\GroupsController@addArticleInGroup') -> name('addArticleGroup');
+
+#вывод страницы с изображениями
+Route::get('/admin/images', 'App\Http\Controllers\ImageController@folderImages') -> name('folder_images');
+
+#вывод страницы с изображениями
+Route::get('/admin/new_image', 'App\Http\Controllers\ImageController@pageImgLoad') -> name('pageImageLoad');
+
+#ДОБАВЛЕНИЕ НОВОЙ СТАТЬИ
+Route::post('/admin/add_article', 'App\Http\Controllers\ArticleController@addArticle') -> name('addArticleRN');

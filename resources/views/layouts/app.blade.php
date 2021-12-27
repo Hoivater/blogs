@@ -46,13 +46,6 @@
     </div>
 
     
-    
-
-
-
-
-
-
    <div class="menu_pod" id = "mod_search">
         <div class="header_menu">
           <p class = "m-0 p-2">Поиск</p>
@@ -72,37 +65,7 @@
 
 
 
-
-
-
-    <div class="menu_pod" id = "mod_groups">
-      <div class="header_menu">
-        <p class = "m-0 p-2">О сайте</p>
-        <div class = "close"></div>
-      </div>
-      <div class="body_menu">
-        <p>Сайт предполагает использования преимуществ какой-либо формации Сайт предполагает использования преимуществ какой-либо формации</p>
-      </div>
-    </div>
-
-
-
-
-
-    <div class="menu_pod" id = "mod_tags">
-      <div class="header_menu">
-        <p class = "m-0 p-2">Теги для gifit.ru.html</p>
-      <div class = "close"></div>
-      </div>
-      <div class="body_menu">
-           <h5>&lt;nav class = 'tag'&gt;</h5>
-            <h5>&nbsp; &lt;a href = '/tags'&gt;</h5> 
-            <h5>&nbsp;&nbsp;<a href = '#' class = 'm_menu'>Конспект {32}</a> , <a href = '#' class = 'm_menu'>CSS</a> , <a href = '#' class = 'm_menu'>CSS</a> , <a href = '#' class = 'm_menu'>CSS</a> , <a href = '#' class = 'm_menu'>CSS</a> , <a href = '#' class = 'm_menu'>CSS</a> , <a href = '#' class = 'm_menu'>CSS</a> , <a href = '#' class = 'm_menu'>CSS</a> , <a href = '#' class = 'm_menu'>CSS</a> , <a href = '#' class = 'm_menu'>CSS</a> , <a href = '#' class = 'm_menu'>CSS</a> , <a href = '#' class = 'm_menu'>CSS</a> </h5>
-            <h5>&nbsp; &lt;/a&gt;</h5>
-        <h5>&lt;/nav&gt;</h5>
-      </div>
-    </div>
-
+@include('inc.site')
 
 
 

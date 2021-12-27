@@ -3,19 +3,6 @@
 @section('title') Редактировать статью @endsection
 
 @section('scripts')
-
-<!-- Font Aweomse 4 CSS -->
-<link rel='stylesheet prefetch' href='https://netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.min.css'>
-
-<!-- Rich Text Editor CSS -->
-<link rel="stylesheet" href="{{route('welcome')}}/component/wysihtml/css/rich-text-editor.css">
-
-<!-- Angular JS -->
-<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular.min.js'></script>
-<!-- Angular Sanitize JS -->
-<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular-sanitize.min.js'></script>
-<!-- Text Angular JS -->
-<script src='https://cdnjs.cloudflare.com/ajax/libs/textAngular/1.1.2/textAngular.min.js'></script>
 @endsection
 
 @section('content')
@@ -62,16 +49,10 @@
               
               <input type = "text" class="form-control mt-3" name = "category" value = "{{$category}}">
               <input type = "text" class="form-control mt-3" name = "podcategory" value = "{{$podcategory}}">
-              <div class="mb-3">
-                <label for="descriptionArticle" class="form-label">Содержание страницы</label>
-		                <div ng-app="textAngularTest" ng-controller="wysiwygeditor" class="container app">
 
-						  <div text-angular="text-angular" name="htmlcontent" ng-model="htmlcontent" ta-disabled='disabled'>  </div>
-
-						  <!-- <textarea ng-model="htmlcontent" style="width: 100%"></textarea> -->
-
-						  <div class="d-none" ta-bind="text" ng-model="htmlcontent" ta-readonly='disabled'></div>
-						</div>
+              <input type = "text" class="hidden" name = "id_article" value = "{{$data -> id}}">
+              <div class="m-3">
+                <textarea class="form-control" name = 'text'>{{$data -> text}}</textarea> 
               </div>
 
 
@@ -84,10 +65,4 @@
 @endsection
 
 @section('script_footer')
-   angular.module("textAngularTest", ['textAngular']);
-	function wysiwygeditor($scope) {
-		$scope.orightml = '';
-		$scope.htmlcontent = $scope.orightml;
-		$scope.disabled = false;
-  };
 @endsection

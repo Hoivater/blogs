@@ -79,3 +79,12 @@ $(document).on('click', '.copy_id', function(event){
     }
     $('textarea#artGroups').val(result);
 });
+
+$(document).on('click', '.copy_image_code', function(event){
+    event.preventDefault();
+    var idElement = event.target.id;
+    
+    var value = "#input" + idElement;  
+    var value_link = $(value).val();
+    alert(value_link);
+});

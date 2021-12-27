@@ -51,6 +51,29 @@ class ArticleController extends Controller
         return redirect() -> route('welcome') -> with('success', 'Страница создана');
     }
 
+    public function redactionArticle(Request $arr){
+        
+        $article = new Article();
+        $art = $article -> find($arr -> input('id_article'));
+
+        $art -> name = $arr -> input('name');
+
+
+        $art -> description = $arr -> input('description');
+        
+        if($arr -> input('tags') != ""){
+            $tags_array = explode(',', $arr -> input('tags'));
+            $art -> tags = $this -> AddTagsF($tags_array);
+        }
+
+        $art -> text = $arr -> input('text');
+
+        $art -> category = $arr -> input('category')."&".$arr -> input('podcategory');
+        
+        $art -> save();
+        return redirect() -> route('articles', $art -> link) -> with('success', 'Страница изменена');
+    }
+
     public function pageSubcategory($name_subcategory)
     {
         Paginator::useBootstrap();

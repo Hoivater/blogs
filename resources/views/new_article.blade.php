@@ -29,7 +29,7 @@
 				<div class='erorrs'>
 					<ul>
 						@foreach($errors -> all() as $error)
-						<li>
+						<li> 
 						     {{$error}}
 						</li>
 						@endforeach
