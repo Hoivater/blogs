@@ -80,8 +80,17 @@ $(document).on('click', '.copy_image_code', function (event) {
   var idElement = event.target.id;
   var value = "#input" + idElement;
   var value_link = $(value).val();
-  alert(value_link);
+  copytextInput(value);
+  alert("Код изображения скопирован");
 });
+
+function copytextInput(el) {
+  var $tmp = $("<textarea>");
+  $("body").append($tmp);
+  $tmp.val($(el).val()).select();
+  document.execCommand("copy");
+  $tmp.remove();
+}
 
 /***/ }),
 
