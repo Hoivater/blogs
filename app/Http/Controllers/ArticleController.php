@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Auth;
 use Illuminate\Http\Request;
 
 use App\Models\Article;
@@ -27,6 +27,11 @@ class ArticleController extends Controller
         $category = $data_category[0];
         $podcategory = $data_category[1];
         return view('redaction_article', ['category' => $category, 'podcategory' => $podcategory, 'data' => $data]);
+    }
+    public function deleteArticlePage($id){
+        $article = new Article();
+        $article -> delete($id);
+        return redirect() -> route('welcome') -> with('success', 'Статья удалена');
     }
 
     public function addArticle(ArticleRequest $arr){
@@ -277,5 +282,10 @@ class ArticleController extends Controller
     public function allArticle()
     {
 
+    }
+    public function exitUsers()
+    {
+        Auth::logout();
+        return redirect() -> route('welcome');
     }
 }

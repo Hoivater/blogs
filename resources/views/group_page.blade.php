@@ -19,10 +19,11 @@
           <a href = "#" data-bs-toggle="popover" data-bs-html='true' title="{{$key -> name_groups}}" data-bs-content="
              <ol>
           {{$key -> id_articles}}
-          
+          @auth
           <li>
           <a href = '{{route('addArticleGroup', $key -> id)}}'>Добавить статью</a>
         </li>
+        @endauth
       </ol>
       <p>{{$key -> description}}</p>">
               <div class="container icon_desktop">
@@ -47,7 +48,7 @@
           </a>
         </div>
 @endforeach
-  
+  @auth
       	<div class="col-md-2">
       		<a href = "{{ route('newgroups') }}">
               <div class="container icon_desktop ">
@@ -70,7 +71,7 @@
               </div>
           </a>
       	</div>
-
+@endauth
   <div class="container-fluid mt-3">
     <div class="pagination_bootstrap">
     {{ $data -> links() }}

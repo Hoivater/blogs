@@ -8,7 +8,7 @@
         <div class="main_field">
         <div class="header_menu">
           <p class = "m-0 p-2">ХешТеги</p>
-          <div class = "close_h"><a href = "#" class = 'close_href'>x</a></div>
+          <div class = "close_h"><a href = "{{route('welcome')}}" class = 'close_href'>x</a></div>
         </div>
         <div class="body_menu">
           @foreach($data as $key)

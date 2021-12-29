@@ -48,6 +48,7 @@
       </div>
 @endforeach
 
+@auth
 <div class="col-md-2">
   <a href = "{{ route('newArticle', [$data_cat->value_category, $data_subc[0]-> value_category]) }}">
       <div class="container icon_desktop ">
@@ -70,6 +71,7 @@
       </div>
   </a>
 </div>
+@endauth
 </div>
     <div class="container-fluid mt-3">
       <div class="pagination_bootstrap">

@@ -46,12 +46,17 @@
 
     <div class="dropdown border-top">
       <a href="#" class="d-flex align-items-center justify-content-center p-3 link-dark text-decoration-none dropdown-toggle" id="dropdownUser3" data-bs-toggle="dropdown" aria-expanded="false">
-        <img src="https://github.com/mdo.png" alt="mdo" width="24" height="24" class="rounded-circle">
+        <img src="{{route('welcome')}}/data_image/logo.svg" alt = "логотип">
       </a>
       <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser3" style="">
+        @auth
         <li><a class="dropdown-item" href="{{route('folder_images')}}">Изображения</a></li>
         <li><hr class="dropdown-divider"></li>
-        <li><a class="dropdown-item" href="#">Выход</a></li>
+        <li><a class="dropdown-item" href="{{route('exitUser')}}">Выход</a></li>
+        @endauth
+        @guest
+          <li><a class="dropdown-item" href="{{route('welcome')}}/login">Войти</a></li>
+        @endguest
       </ul>
     </div>
 </div>

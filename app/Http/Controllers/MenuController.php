@@ -24,6 +24,16 @@ class MenuController extends Controller
         return view('new_category');
     }
 
+    public function delSubcategory($id)
+    {
+        $menu = new Menu();
+
+        $menu -> where('value_category', '=', $id) -> delete();
+        
+        return redirect() -> route('welcome') -> with('success', 'Статья удалена');
+    }
+    
+
     public function addCategory(MenuRequest $arr)
     {
         $menu = new Menu();

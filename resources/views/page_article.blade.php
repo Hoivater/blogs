@@ -10,8 +10,10 @@
           <p class = "m-0 p-2">{{$data_article -> name}}</p>
           <div class = "close_h"><a href = "{{route('subcategory', $data_article -> key_subcategory)}}" class = 'close_href'>x</a></div>
 
-
+          @auth
           <div class = "redaction"><a href = "{{route('redactionArticle', $data_article -> id)}}" class = 'close_href'>/</a></div>
+          <div class = "deletearticle"><a href = "{{route('deleteArticle', $data_article -> id)}}" class = 'close_href'>/del</a></div>
+          @endauth
         </div>
         <div class="body_menu">
         	@if($errors -> any())
