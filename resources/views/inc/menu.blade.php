@@ -60,3 +60,22 @@
       </ul>
     </div>
 </div>
+
+
+
+   <div class="menu_pod" id = "mod_search" style='z-index: 1000;'>
+        <div class="header_menu">
+          <p class = "m-0 p-2">Поиск</p>
+          <div class = "close"></div>
+        </div>
+        <div class="body_menu">
+          <form name="search" action ="{{ route('searchs') }}" method="post">
+            {{csrf_field()}}
+              <div class="input-group p-3">
+                <input type="text" class="form-control" name = 'word_search' aria-label="Recipient's username" aria-describedby="button-addon2">
+                <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Поиск</button>
+              </div>
+          </form>
+
+        </div>
+      </div>

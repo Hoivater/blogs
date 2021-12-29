@@ -78,7 +78,15 @@ class ArticleController extends Controller
         $art -> save();
         return redirect() -> route('articles', $art -> link) -> with('success', 'Страница изменена');
     }
+    public function pageSearch(Request $arr)
+    {
+        Paginator::useBootstrap();
+        $article = new Article();
+        $data = $article -> where('name', 'LIKE', '%'.$arr -> input('word_search').'%') -> paginate(18);
+        $data = $this -> translF($data);
+        return view('search', ['data' => $data, 'search_word' => $arr -> input('word_search')]);
 
+    }
     public function pageSubcategory($name_subcategory)
     {
         Paginator::useBootstrap();
