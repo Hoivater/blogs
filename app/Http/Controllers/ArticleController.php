@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Models\Article;
 use App\Models\Groups;
+use App\Models\Comment;
 use Illuminate\Pagination\Paginator;
 
 use App\Http\Requests\ArticleRequest;
@@ -121,7 +122,7 @@ class ArticleController extends Controller
     public function articlePage($link_article)
     {
         $article = new Article();
-
+        $comment = new Comment();
         $data_article = $article -> where('link', '=', $link_article) -> get();
         $grps = new Groups();
         $search = $grps -> where('id_articles', 'LIKE', '%'.$data_article[0] -> link.'%') -> get();
@@ -135,7 +136,18 @@ class ArticleController extends Controller
             $data_article = $this -> translF($data_article);
             $result = $data_article[0]; 
         }
-        return view('page_article', ['data_article' => $result]);
+        $commentary = $comment -> orderBy('id', 'desc') -> where('id_article', '=', $data_article[0] -> id) -> where('level', '=', '0') -> get();
+        $commentary = $this -> searchLevelUp($commentary, $data_article[0] -> id);
+        return view('page_article', ['data_article' => $result, 'commentary' => $commentary]);
+    }
+    public function searchLevelUp($data, $id_article)
+    {
+        $comment = new Comment();
+        foreach ($data as $key) {
+           $key -> twoLevel = $comment -> orderBy('id', 'desc') -> where('id_article', '=', $id_article) -> where('level', '=', $key -> id) -> get();
+           $key -> numbers = count($key -> twoLevel);
+        }
+        return $data;
     }
     public function translOneF($data)
     {

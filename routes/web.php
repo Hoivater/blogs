@@ -73,6 +73,9 @@ Route::post('/admin/new_category_page/add_category', 'App\Http\Controllers\MenuC
 #ПОИСК
 Route::post('/search', 'App\Http\Controllers\ArticleController@pageSearch') -> name('searchs');
 
+#Добавление комментария
+Route::post('/add_commentary', 'App\Http\Controllers\CommentController@addComment') -> name('add_commentary');
+
 
 #ДОБАВЛЕНИЕ НОВОГО ИЗОБРАЖЕНИЯ
 Route::post('/admin/images/load_image', 'App\Http\Controllers\ImageController@addImage') -> name('addImageRN')-> middleware('auth');

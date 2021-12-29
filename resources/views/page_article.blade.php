@@ -26,8 +26,13 @@
 						@endforeach
 					</ul>
 				</div>
-			@endif
+			 @endif  
+       @if(session('success'))
+       <mark>{{session('success')}}</mark>
+       @endif
+        <div class="text_article">
             {!!$data_article -> text!!}
+        </div>
             <hr />
         <div class="date text-center">
         	{{$data_article -> created_at}}
@@ -70,9 +75,62 @@
     <p class = "m-0 p-2">Комментарии</p>
   </div>
   <div class="body_menu">
-		Комментарии в разработке 
+    <h4 class="com435 levelUp">Комментировать</h4>
+		
+
+    <hr />
+    @foreach($commentary as $comment)
+    <div class="commentary_block mt-2 pt-2">
+      <p class="name_commentaru"><a href="#" class = "levelUp" id = "a{{$comment -> id}}">{{$comment -> author}} </a> <i class="fas fa-reply"></i></p>
+      <p>{{$comment -> text}}</p>
+      @if($comment -> numbers > 0)
+        <p class="text-end two_level" class="openUpLevel" id = "o{{$comment -> id}}"><i class="far fa-clock"></i> {{$comment -> created_at}}| <i class="far fa-comments"></i> {{$comment -> numbers}} Ответа</p>
+      @else
+      <p class="text-end two_level" class="openUpLevel" id = "o{{$comment -> id}}"><i class="far fa-clock"></i> {{$comment -> created_at}}</p>
+      @endif
+    </div>
+      @if($comment -> twoLevel)
+          @foreach($comment -> twoLevel as $key_tl)  
+            <div class="commentary_two_level">
+              <div class="commentary_block">
+                <p class="name_commentaru">{{$key_tl -> author}}</p>
+                <p>{{$key_tl -> text}}</p>
+                <p class="text-end">{{$key_tl -> created_at}}</p>
+              </div>
+            </div>
+            @endforeach
+      @endif
+    @endforeach
+
+      
   </div>
 </div>
+
+
+
+<div class="menu_pod" id = "mod_comments" style='z-index: 1000;'>
+        <div class="header_menu">
+          <p class = "m-0 p-2">Поиск</p>
+          <div class = "close"></div>
+        </div>
+        <div class="body_menu">
+    <form name = "add_commentary_modal" action = "{{ route('add_commentary') }}" method="post">
+      {{csrf_field()}}
+      <input type="text" class="commentary form-control mt-3" name = "name" id = "namess" placeholder="Ваше имя/ник">
+      <input type = "text" class="hidden" name = "id" value = "{{ $data_article -> id }}">
+      <input type = "text" class="hidden" name = "link" value = "{{ $data_article -> link }}">
+      <input type = "text" class="hidden" id = "levelss" name = "level"  value = "0">
+      <input type = "text" class="hidden" name = "emails" value = "inkognito@mail.ru">
+      <textarea class="form-control mt-3" name = "text" id = "textss" placeholder="Ваш комментарий..." 
+      ></textarea>
+      <input type="submit" name="sub" value="Комментировать" class="btn btn-outline-primary mt-3">
+    </form>
+
+        </div>
+      </div>
+
+
+
 @endsection
 
 @section('footer_link')

@@ -61,6 +61,10 @@ $(document).on('click', '.close', function (event) {
   $("#mod_groups").css("display", "none");
   $("#mod_tags").css("display", "none");
   $("#mod_soder").css("display", "none");
+  $("#mod_comments").css("display", "none");
+});
+$(document).on('click', '.levelUp', function (event) {
+  $("#mod_comments").css("display", "block");
 });
 $(document).on('click', '.copy_id', function (event) {
   event.preventDefault();
@@ -90,7 +94,23 @@ function copytextInput(el) {
   $tmp.val($(el).val()).select();
   document.execCommand("copy");
   $tmp.remove();
-}
+} // КОММЕНТАРИИ
+
+
+$(document).on('click', '.levelUp', function (event) {
+  event.preventDefault();
+  var idElement = event.target.id;
+  var num = idElement.substr(1);
+  var pElem = $("#" + idElement).html();
+
+  if (num === null) {
+    num = 0;
+  }
+
+  $("input#levelss").val(num);
+  $("textarea#textss").val(pElem + ", ");
+  return true;
+});
 
 /***/ }),
 
