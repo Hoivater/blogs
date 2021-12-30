@@ -122,3 +122,11 @@ $(document).on('click', '.levelUp', function(event){
 
     return true;
 });
+
+
+$(document).on('click', '.openUpLevel', function(event){
+    event.preventDefault();
+    var idElement = event.target.id;
+    var num = idElement.substr(1,);
+    $("#lv"+num).css("display", "block");
+});

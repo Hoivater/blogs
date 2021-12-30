@@ -7,6 +7,7 @@
 <!-- Новая статья -->
         <div class="main_field">
         <div class="header_menu">
+          <a name = "hrefup"></a>
           <p class = "m-0 p-2">{{$data_article -> name}}</p>
           <div class = "close_h"><a href = "{{route('subcategory', $data_article -> key_subcategory)}}" class = 'close_href'>x</a></div>
 
@@ -45,6 +46,27 @@
 
 @endsection
 
+
+@section('menu')
+  @parent
+      <li>
+        <a href="#hrefup" class="nav-link py-3 border-bottom" title="">
+            <span class="fas fa-chevron-up"></span>
+        </a>
+      </li> 
+      <li>
+        <a href="#hrefcomment" class="nav-link py-3 border-bottom scrollto" title="">
+            <span class="far fa-comments"></span>
+        </a>
+      </li>
+@endsection
+
+
+
+
+
+
+
 @section('navigation_article')
 
 @if(isset($data_article -> navi))
@@ -70,26 +92,25 @@
 @endsection
 
 @section('commentary')
- <div class="main_field mt-3">
+ <div class="main_field mt-3" >
   <div class="header_menu">
-    <p class = "m-0 p-2">Комментарии</p>
+    <p class = "m-0 p-2">Комментарии</p><a name = "hrefcomment"></a>
   </div>
   <div class="body_menu">
-    <h4 class="com435 levelUp">Комментировать</h4>
+    <h4 class="com435 levelUp btn btn-outline-primary">Добавить комментарий</h4>
 		
-
-    <hr />
     @foreach($commentary as $comment)
     <div class="commentary_block mt-2 pt-2">
       <p class="name_commentaru"><a href="#" class = "levelUp" id = "a{{$comment -> id}}">{{$comment -> author}} </a> <i class="fas fa-reply"></i></p>
       <p>{{$comment -> text}}</p>
       @if($comment -> numbers > 0)
-        <p class="text-end two_level" class="openUpLevel" id = "o{{$comment -> id}}"><i class="far fa-clock"></i> {{$comment -> created_at}}| <i class="far fa-comments"></i> {{$comment -> numbers}} Ответа</p>
+        <p class="text-end two_level openUpLevel" id = "o{{$comment -> id}}"><i class="far fa-clock"></i> {{$comment -> created_at}}| <i class="far fa-comments"></i> {{$comment -> numbers}} Ответа</p>
       @else
-      <p class="text-end two_level" class="openUpLevel" id = "o{{$comment -> id}}"><i class="far fa-clock"></i> {{$comment -> created_at}}</p>
+      <p class="text-end two_level" id = "o{{$comment -> id}}"><i class="far fa-clock"></i> {{$comment -> created_at}}</p>
       @endif
     </div>
       @if($comment -> twoLevel)
+        <div class="commentLvlTwo" id = "lv{{$comment -> id}}"> 
           @foreach($comment -> twoLevel as $key_tl)  
             <div class="commentary_two_level">
               <div class="commentary_block">
@@ -99,6 +120,7 @@
               </div>
             </div>
             @endforeach
+        </div>
       @endif
     @endforeach
 

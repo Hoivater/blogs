@@ -23,4 +23,18 @@ class CommentController extends Controller
         $comment -> save();
         return redirect() -> route('articles', $arr -> input('link')) -> with("success", "Комментарий добавлен");
     }   
+
+    public function pageAdminComment()
+    {
+        Paginator::useBootstrap();
+        $comment = new Comment();
+        $data = $comment -> orderBy('id', 'desc') -> paginate(50);
+        return view('page_admin_comment', ['data' => $data]);
+    }
+    public function deleteComment($id)
+    {
+        $comment = new Comment();
+        $comment -> delete($id);
+        // return redirect() -> route('admin_comments') -> with("success", "Комментарий успешно удален");
+    }   
 }

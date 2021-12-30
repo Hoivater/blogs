@@ -41,6 +41,7 @@
             <i class="fas fa-info p-2" id = 'd_groups'></i>
         </a>
       </li>
+      @show
     </ul>
 
 

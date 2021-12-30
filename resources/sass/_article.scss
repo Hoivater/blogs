@@ -40,3 +40,14 @@
 .levelUp{
   cursor:pointer;
 }
+.openUpLevel{
+  padding:4px;
+}
+.openUpLevel:hover{
+  cursor:pointer;
+  background:#006FFF;
+  color:white;
+}
+.commentLvlTwo{
+  display:none;
+}

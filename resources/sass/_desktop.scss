@@ -5,10 +5,10 @@
 .icon_desktop:hover{
         background: #F8F9FA7E;
 }
-.desktop_border{
+.desktop_border, .information .body_menu{
        height: 80vh;
-       overflow: hidden;
-       overflow-y: scroll;
+       overflow: auto;
+       /*overflow-y: scroll;*/
        a{
         text-decoration:none;
         color:black;

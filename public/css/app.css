@@ -83,6 +83,20 @@ html {
   cursor: pointer;
 }
 
+.openUpLevel {
+  padding: 4px;
+}
+
+.openUpLevel:hover {
+  cursor: pointer;
+  background: #006FFF;
+  color: white;
+}
+
+.commentLvlTwo {
+  display: none;
+}
+
 .icon_desktop {
   cursor: pointer;
 }
@@ -91,12 +105,12 @@ html {
   background: #F8F9FA7E;
 }
 
-.desktop_border {
+.desktop_border, .information .body_menu {
   height: 80vh;
-  overflow: hidden;
-  overflow-y: scroll;
+  overflow: auto;
+  /*overflow-y: scroll;*/
 }
-.desktop_border a {
+.desktop_border a, .information .body_menu a {
   text-decoration: none;
   color: black;
 }
@@ -223,4 +237,8 @@ html {
 
 .navigation_article a {
   color: white;
+}
+
+#mod_groups {
+  width: 80%;
 }
