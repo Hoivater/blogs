@@ -11,7 +11,7 @@
           @foreach($data as $key)
         	 <div class="col-md-2 all_icon">
           <a href = "#" >
-              <input type = "text" class="hidden" id = "input{{$key -> id}}" value = "{{$key->link}}">
+              <input type = "text" class="hidden" id = "input{{$key -> id}}" value = "/storage/{{$key->link}}">
               <div class="container icon_desktop">
                 <div class="row">
                   <div class="col-2">
